@@ -29,12 +29,14 @@ const Hero = () => {
     <section className="relative w-full h-screen overflow-hidden">
       {prev !== null && (
         <img
+        loading="lazy"
           src={images[prev]}
           alt={`Hero ${prev}`}
           className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-1000 ease-in-out translate-x-[-100%]"
         />
       )}
       <img
+        loading="lazy"
         src={images[current]}
         alt={`Hero ${current}`}
         className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-1000 ease-in-out translate-x-0"

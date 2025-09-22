@@ -68,6 +68,7 @@ const ServicesAno = () => {
                                     <div className={`h-full bg-[#2a2a2a] transition-all duration-500 ease-in-out ${activeService === index ? 'w-full' : 'w-0'}`}></div>
                                 </div>
                                 <img
+                                loading="lazy"
                                     key={index}
                                     src={service.imageUrl}
                                     alt={service.title}

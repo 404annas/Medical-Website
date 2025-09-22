@@ -33,6 +33,7 @@ const Services = () => {
         {/* Baayi Taraf ka Column: Tasveer */}
         <div>
           <img
+          loading="lazy"
             src="https://cdn.prod.website-files.com/686e5f117daf09c744bbab53/686f4811e6b2605289d088ca_49542412ea16da7ba06eb97cd4f73ca0_About%20Image-p-800.webp"
             alt="Caregiver assisting an elderly woman in a wheelchair"
             className="rounded-3xl w-[90%] object-cover"
