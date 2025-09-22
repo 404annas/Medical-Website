@@ -6,7 +6,7 @@ import Faqs from '../components/Faqs';
 const HomePage = () => {
   return (
     <div>
-      {/* <Hero /> */}
+      <Hero />
       <Services />
       <Faqs />
     </div>
