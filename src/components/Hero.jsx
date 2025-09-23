@@ -47,10 +47,10 @@ const Hero = () => {
 
       {/* Overlay content */}
       <div className="absolute inset-0 flex flex-col justify-center items-start px-6 sm:px-12 z-20">
-        <h2 className="text-6xl max-w-lg font-medium text-white mb-6 drop-shadow-lg transition-opacity duration-700 ease-in-out">
+        <h2 className="text-[60px] leading-none max-w-lg font-medium text-white mb-6 drop-shadow-lg transition-opacity duration-700 ease-in-out">
           {headings[current]}
         </h2>
-        <div className="relative group flex items-center gap-4 font-medium text-base px-4 py-2 rounded-full border border-[#4D273F] hover:border-white cursor-pointer overflow-hidden transition-colors duration-500 bg-white">
+        <div className="relative group flex items-center gap-4 font-medium text-[17px] px-4 py-2 rounded-full border border-[#4D273F] hover:border-white cursor-pointer overflow-hidden transition-colors duration-500 bg-white">
           <span className="absolute inset-0 bg-[#4D273F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
           <p className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
             Get care now
@@ -60,9 +60,9 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="flex flex-col mt-10 text-white">
-          <p className="font-medium text-xl">Senior Care</p>
-          <p className="text-sm max-w-xs">Comprehensive support that promotes comfort, dignity, and independence daily.</p>
+        <div className="flex flex-col gap-2 mt-10 text-white">
+          <p className="font-medium text-2xl">Senior Care</p>
+          <p className="text-[16px] leading-none max-w-xs text-gray-300">Comprehensive support that promotes comfort, dignity, and independence daily.</p>
         </div>
       </div>
     </section>

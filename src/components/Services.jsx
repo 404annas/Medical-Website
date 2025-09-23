@@ -42,8 +42,8 @@ const Services = () => {
 
         {/* Right Column: Content */}
         {/* Daayi Taraf ka Column: Content */}
-        <div className="flex flex-col text-left">
-          <h2 className="text-[45px] leading-none font-medium text-[#000000] leading-tight">
+        <div className="flex flex-col gap-4 text-left">
+          <h2 className="text-[45px] font-medium text-[#000000] leading-tight">
             Reliable in-home elder care that prioritizes comfort, safety and emotional well-being for your loved ones.
           </h2>
 
@@ -63,7 +63,7 @@ const Services = () => {
 
           {/* Horizontal Line */}
           {/* Lakeer */}
-          <hr className="my-20 border-t border-gray-300" />
+          <hr className="my-14 border-t border-gray-300" />
 
           {/* Service Cards */}
           {/* Service ke Cards */}

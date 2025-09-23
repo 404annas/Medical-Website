@@ -13,7 +13,7 @@ const Navbar = () => {
           <a href="#blog"><p>Blog</p></a>
           <a href="#contact"><p>Contact</p></a>
         </div>
-        <div className="relative group flex items-center gap-4 font-medium text-lg px-4 py-2 rounded-full border border-[#4D273F] hover:border-white cursor-pointer overflow-hidden transition-colors duration-500 bg-white">
+        <div className="relative group flex items-center gap-4 font-medium text-[17px] px-4 py-2 rounded-full border border-[#4D273F] hover:border-white cursor-pointer overflow-hidden transition-colors duration-500 bg-white">
           {/* Animated background */}
           <span className="absolute inset-0 bg-[#4D273F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
 

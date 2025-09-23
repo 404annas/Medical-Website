@@ -35,7 +35,7 @@ const ServicesAno = () => {
             <div className="container mx-auto">
                 {/* Section ka main title */}
                 {/* Main title of the section */}
-                <h2 className="text-4xl lg:text-5xl font-medium text-center text-[#1E1E1E] mb-16 max-w-3xl mx-auto text-black">
+                <h2 className="text-4xl lg:text-5xl font-medium text-center mb-16 max-w-3xl mx-auto text-black">
                     Compassionate home care services for your aging loved ones
                 </h2>
 
@@ -45,52 +45,49 @@ const ServicesAno = () => {
 
                     {/* Left Column: List of services */}
                     {/* Baayi Taraf ka Column: Services ki list */}
-                    <div className="flex flex-col gap-10">
+                    <div className="flex flex-col gap-6">
                         {servicesData.map((service, index) => (
                             <div
                                 key={index}
-                                // 'onMouseEnter' event se active service ko update karein.
-                                // Update the active service with the 'onMouseEnter' event.
                                 onMouseEnter={() => setActiveService(index)}
                                 className="cursor-pointer py-6 relative"
                             >
-                                <div className="flex items-center gap-10">
-                                    <h3 className="text-2xl font-medium text-[#1E1E1E]">{service.title}</h3>
+                                {/* Title aur description ka wrapper */}
+                                <div className="flex flex-col">
+                                    {/* Title */}
+                                    <h3 className="text-3xl font-medium text-[#1E1E1E]">
+                                        {service.title}
+                                    </h3>
 
-                                    {/* Description jo sirf active service par dikhegi */}
-                                    <p className={`text-gray-600 mt-2 overflow-hidden transition-all duration-500 ease-in-out text-sm`}>
+                                    {/* Description sirf active service par */}
+                                    <p
+                                        className={`text-gray-600 mt-2 transition-all duration-500 ease-in-out text-[16px] leading-6 max-w-xl`}
+                                    >
                                         {service.description}
                                     </p>
                                 </div>
 
                                 {/* Animated line */}
-                                <div className="mt-4 h-0.5 w-full bg-gray-200">
-                                    <div className={`h-full bg-[#2a2a2a] transition-all duration-500 ease-in-out ${activeService === index ? 'w-full' : 'w-0'}`}></div>
+                                <div className="mt-6 h-0.5 w-full bg-gray-200">
+                                    <div
+                                        className={`h-full bg-[#2a2a2a] transition-all duration-500 ease-in-out ${activeService === index ? "w-full" : "w-0"
+                                            }`}
+                                    ></div>
                                 </div>
+
+                                {/* Image */}
                                 <img
-                                loading="lazy"
+                                    loading="lazy"
                                     key={index}
                                     src={service.imageUrl}
                                     alt={service.title}
-                                    className={`absolute z-20 top-0 right-20 w-60 h-60 object-cover transition-opacity duration-700 ease-in-out ${activeService === index ? 'opacity-100' : 'opacity-0'}`}
+                                    className={`absolute z-20 top-0 right-28 w-60 h-60 object-cover transition-opacity duration-700 ease-in-out ${activeService === index ? "opacity-100" : "opacity-0"
+                                        }`}
                                 />
                             </div>
                         ))}
                     </div>
 
-                    {/* Right Column: Image display */}
-                    {/* Daayi Taraf ka Column: Image display */}
-                    {/* <div className="relative w-full h-[600px] hidden lg:block">
-                     
-                        {servicesData.map((service, index) => (
-                            <img
-                                key={index}
-                                src={service.imageUrl}
-                                alt={service.title}
-                                className={`absolute inset-0 w-full h-full object-cover rounded-2xl transition-opacity duration-700 ease-in-out ${activeService === index ? 'opacity-100' : 'opacity-0'}`}
-                            />
-                        ))}
-                    </div> */}
                 </div>
             </div>
         </section>
