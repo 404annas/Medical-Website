@@ -117,45 +117,37 @@ const faqData = {
 // --- Helper component for the Accordion Item ---
 const AccordionItem = ({ item, isOpen, onClick, isLast }) => {
   return (
-    <div className={`py-6 ${!isLast ? "border-b border-gray-300" : ""}`}>
+    <div className={`py-4 sm:py-6 ${!isLast ? "border-b border-gray-300" : ""}`}>
       <button
         onClick={onClick}
         className="w-full flex justify-between items-center text-left focus:outline-none cursor-pointer"
       >
-        <span className="text-lg text-black">{item.question}</span>
+        <span className="text-base sm:text-lg md:text-xl text-black font-medium">{item.question}</span>
         <span
-          className={`text-2xl font-light text-gray-500 transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""
-            }`}
+          className={`text-xl sm:text-2xl font-light text-gray-500 transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         >
           {isOpen ? "-" : "+"}
         </span>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[999px] mt-4" : "max-h-0"
-          }`}
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[999px] mt-2 sm:mt-4" : "max-h-0"}`}
       >
-        <p className="text-gray-600">{item.answer}</p>
+        <p className="text-gray-600 text-sm sm:text-base mt-2">{item.answer}</p>
       </div>
     </div>
   );
 };
 
-
-// --- Main Faqs Component ---
 const Faqs = () => {
-  // State to track the active category (e.g., 'General questions')
   const [activeCategory, setActiveCategory] = useState('General questions');
-
-  // State to track the currently open question's index
   const [openQuestionIndex, setOpenQuestionIndex] = useState(null);
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
-    setOpenQuestionIndex(null); // Reset open question when category changes
+    setOpenQuestionIndex(null);
   };
 
   const handleQuestionClick = (index) => {
-    // If the clicked question is already open, close it. Otherwise, open it.
     setOpenQuestionIndex(openQuestionIndex === index ? null : index);
   };
 
@@ -163,43 +155,40 @@ const Faqs = () => {
   const currentQuestions = faqData[activeCategory];
 
   return (
-    <section className="bg-[#F1F1F1] py-20 px-4 sm:px-6 lg:px-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
+    <section className="bg-[#F1F1F1] py-16 sm:py-20 px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
 
         {/* Left Column: Category Navigation */}
-        <div className="lg:col-span-1">
-          <div className="bg-[#F1F1F1] shadow-sm">
+        <div className="lg:col-span-1 order-1">
+          <div className="bg-[#F1F1F1] shadow-sm rounded-xl overflow-hidden">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => handleCategoryClick(category)}
-                className={`w-full text-left px-4 py-6 flex justify-between items-center transition-colors duration-200 cursor-pointer border-b border-gray-300 ${activeCategory === category
-                  ? 'bg-[#4D273F] text-white'
-                  : 'text-black'
-                  }`}
+                className={`w-full text-left px-4 sm:px-6 py-4 sm:py-6 flex justify-between items-center transition-colors duration-200 cursor-pointer border-b border-gray-300 ${activeCategory === category ? 'bg-[#4D273F] text-white' : 'text-black'}`}
               >
-                <span className='font-medium text-lg'>{category}</span>
-                <span className="transform transition-transform duration-300">→</span>
+                <span className='font-medium text-sm sm:text-base md:text-lg'>{category}</span>
+                <span className="transform transition-transform duration-300 text-base sm:text-lg md:text-xl">→</span>
               </button>
             ))}
           </div>
         </div>
 
         {/* Right Column: Questions and Answers */}
-        <div className="lg:col-span-2">
-          <div className="bg-[#F1F1F1] rounded-xl p-6 sm:p-10 border border-gray-300">
+        <div className="lg:col-span-2 order-1 lg:order-2">
+          <div className="bg-[#F1F1F1] rounded-xl p-4 sm:p-6 md:p-8 border border-gray-300">
             {currentQuestions.map((item, index) => (
               <AccordionItem
                 key={index}
                 item={item}
                 isOpen={openQuestionIndex === index}
                 onClick={() => handleQuestionClick(index)}
-                isLast={index === currentQuestions.length - 1} // ✅ pass last check
+                isLast={index === currentQuestions.length - 1}
               />
             ))}
-
           </div>
         </div>
+
       </div>
     </section>
   );
