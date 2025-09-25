@@ -1,5 +1,6 @@
 import { ArrowUpRightIcon, Facebook, Linkedin, Instagram, Twitter } from 'lucide-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -40,11 +41,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Quick links</h3>
             <ul className="space-y-2 sm:space-y-4 text-sm sm:text-base">
-              <li><a href="#" className="text-gray-600 hover:text-[#4D273F] transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-[#4D273F] transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-[#4D273F] transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-[#4D273F] transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-600 hover:text-[#4D273F] transition-colors">Contact</a></li>
+              <li><Link to="/" className="text-gray-600 hover:text-[#4D273F] transition-colors duration-300">Home</Link></li>
+              <li><Link to="/about" className="text-gray-600 hover:text-[#4D273F] transition-colors duration-300">About</Link></li>
+              <li><Link to="/services" className="text-gray-600 hover:text-[#4D273F] transition-colors duration-300">Services</Link></li>
+              <li><Link to="/blog" className="text-gray-600 hover:text-[#4D273F] transition-colors duration-300">Blog</Link></li>
+              <li><Link to="/contact" className="text-gray-600 hover:text-[#4D273F] transition-colors duration-300">Contact</Link></li>
             </ul>
           </div>
 

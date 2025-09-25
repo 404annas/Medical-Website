@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PhoneCall, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,11 +21,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-14 text-base">
-          <a href="#home"><p>Home</p></a>
-          <a href="#about"><p>About</p></a>
-          <a href="#services"><p>Services</p></a>
-          <a href="#blog"><p>Blog</p></a>
-          <a href="#contact"><p>Contact</p></a>
+          <Link to="/" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Home</p></Link>
+          <Link to="/about" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>About</p></Link>
+          <Link to="/services" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Services</p></Link>
+          <Link to="/blog" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Blog</p></Link>
+          <Link to="/contact" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Contact</p></Link>
         </div>
 
         {/* Contact Button Desktop */}

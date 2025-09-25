@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowUpRightIcon } from "lucide-react";
-import heroImg from "../assets/medHero.png";
+import heroImg from "../assets/hero.png";
 
 const heading = [
   "We support seniors with dignity and personal care",
@@ -19,7 +19,7 @@ const Hero = () => {
   // }, [current]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-[90vh]  overflow-hidden">
       {/* Previous image */}
       {/* {prev !== null && (
         <img
