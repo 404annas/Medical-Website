@@ -37,7 +37,6 @@ const About = () => {
         <div className="min-h-screen bg-gradient-to-r from-black via-gray-900 to-black">
             {/* Hero Section */}
             <div className="relative overflow-hidden pt-20">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-orange-200/10"></div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                     <div className="text-center">
                         {/* <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-r from-[#4D273F] to-[#E6B59E] mb-8 mx-auto shadow-2xl">
