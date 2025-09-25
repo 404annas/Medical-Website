@@ -2,9 +2,9 @@ import React from 'react'
 
 const BlogPage = () => {
     return (
-        <div className='pt-10 pb-20 bg-gray-100'>
-            <h1 className="text-3xl font-semibold text-center mx-auto">Our Latest Blogs</h1>
-            <p className="text-sm text-slate-500 text-center mt-2 max-w-lg mx-auto">A visual collection of our most recent works -
+        <div className='pt-30 pb-20 bg-gradient-to-r from-black via-gray-900 to-black'>
+            <h1 className="text-3xl font-semibold text-center mx-auto text-white">Our Latest Blogs</h1>
+            <p className="text-sm text-slate-400 text-center mt-2 max-w-lg mx-auto">A visual collection of our most recent works -
                 each piece crafted with intention, emotion, and style.</p>
 
             <div className="flex items-center gap-6 h-[400px] w-full max-w-5xl mt-10 mx-auto">

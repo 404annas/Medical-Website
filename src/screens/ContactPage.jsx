@@ -37,7 +37,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-[#4D273F] to-black flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-black via-[#4D273F] to-black flex items-center justify-center pt-28 pb-10">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4D273F] rounded-full blur-3xl animate-pulse"></div>
