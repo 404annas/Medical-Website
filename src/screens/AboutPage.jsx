@@ -1,151 +1,219 @@
-import React from 'react'
-import About from '../components/About';
+import React from 'react';
+import { Award, MapPin, GraduationCap, Stethoscope, Brain, Heart } from 'lucide-react';
+import ownerImg from "../assets/owner.png"
 
-const AboutPage = () => {
-    const services = [
-        {
-            title: 'Personalized daily assistance',
-            description: 'Tailored support for daily routines ensuring comfort and independence for every senior.',
-            imageUrl: 'https://images.pexels.com/photos/4046317/pexels-photo-4046317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Replace with your actual image URL
-        },
-        {
-            title: 'Light housekeeping support',
-            description: 'Gentle home cleaning tasks to maintain a safe and welcoming living space daily.',
-            imageUrl: 'https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Replace with your actual image URL
-        },
-        {
-            title: 'Medication reminder services',
-            description: 'Timely alerts and guidance to help seniors manage their prescriptions with ease.',
-            imageUrl: 'https://images.pexels.com/photos/4046317/pexels-photo-4046317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Replace with your actual image URL
-        },
+const About = () => {
+    const specialties = [
+        "Addiction Psychiatry",
+        "Mental Health Treatment and Management"
+    ];
+
+    const expertise = [
+        "Mental Health",
+        "Alcohol and Drug Addiction Treatment",
+        "Innovative Addiction Psychiatry",
+        "Rapid Anesthesia-Assisted Drug Detox",
+        "Photobiomodulation",
+        "Neural Regeneration",
+        "Nano-Particle Infusions",
+        "Telemedicine",
+        "First Aid & Mental Health Training",
+        "Addiction Recovery Management",
+        "Holistic and Evidence-Based Treatment Approaches",
+        "Holistic and Evidence-Based Treatment Approaches"
+    ];
+
+    const qualifications = [
+        "MBBS (Punjab University)",
+        "Postgraduate Diploma in Hospital Management (Australia)",
+        "Diploma in Mental Health (Australia)",
+        "Diploma in Training Design & Development (Australia)",
+        "Diploma in Vocational Education & Training (Australia)",
+        "Diploma in Business (Australia)",
+        "Master Trainer in First Aid and Mental Health"
     ];
 
     return (
-        <>
-            <About />
-            <div className=''>
-                <section className="pt-10 pb-20">
-                    <div className="size-[520px] rounded-full absolute blur-[300px] -z-10 bg-[#E6B59E]"></div>
-                    <div className="max-w-7xl mx-auto">
-                        <div className="text-center mb-16">
-                            <h2 className="text-3xl uppercase md:text-4xl font-bold text-[#4D273F] leading-tight">
-                                Compassionate home care services
-                                <br />
-                                for your aging loved ones
-                            </h2>
+        <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+            {/* Hero Section */}
+            <div className="relative overflow-hidden bg-gradient-to-r from-black via-gray-900 to-black">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-orange-200/10"></div>
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                    <div className="text-center">
+                        <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-r from-[#4D273F] to-[#E6B59E] mb-8 mx-auto shadow-2xl">
+                            <Stethoscope className="w-12 h-12 text-white" />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                            {services.map((service, index) => (
-                                <div key={index} className="bg-white rounded-3xl p-6 border border-[#E6B59E] flex flex-col">
-                                    <div className="flex-grow">
-                                        <h3 className="text-2xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                                        <p className="text-gray-600 mb-5 text-sm">{service.description}</p>
-                                        <a href="#" className="text-[#4D273F] font-semibold inline-flex items-center group">
-                                            View more
-                                            <span aria-hidden="true" className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
-                                                &rarr;
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div className="mt-8">
-                                        <img
-                                            loading='lazy'
-                                            src={service.imageUrl}
-                                            alt={service.title}
-                                            className="w-full h-60 object-cover rounded-2xl hover:scale-95 transition-all duration-300"
-                                        />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                <section className="flex flex-col md:flex-row items-center justify-center gap-10">
-                    <div className="size-[520px] rounded-full absolute blur-[300px] -z-10 bg-[#E6B59E]"></div>
-                    <div className="relative shadow-2xl shadow-indigo-600/40 rounded-2xl overflow-hidden shrink-0">
-                        <img className="max-w-md w-full object-cover rounded-2xl"
-                            src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?q=80&w=451&h=451&auto=format&fit=crop"
-                            alt="" />
-                        <div className="gap-1 max-w-72 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white size-16 flex items-center justify-center aspect-square backdrop-blur rounded-full">
-                            <svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M1.027 3.371c0-1.374 1.512-2.213 2.678-1.484l9.11 5.693a1.75 1.75 0 0 1 0 2.969l-9.11 5.693c-1.166.729-2.678-.11-2.678-1.484z"
-                                    fill="#fff" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div className="text-sm text-slate-600 max-w-3xl">
-                        <h1 className="text-xl uppercase font-semibold text-slate-700">What we do?</h1>
-                        <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-indigo-600 to-[#DDD9FF]"></div>
-                        <p className="mt-8">PrebuiltUI helps you build faster by transforming your design vision into fully functional,
-                            production-ready UI components. </p>
-                        <p className="mt-4">Whether you're launching a SaaS app, landing page or dashboard, our collection of Tailwind
-                            CSS components is crafted to boost your development speed and improve user experience.</p>
-                        <p className="mt-4">From UI design systems to automation-ready layouts, PrebuiltUI empowers you to build
-                            beautifully and scale effortlessly.</p>
-                        <button
-                            className="flex items-center gap-2 mt-8 hover:-translate-y-0.5 transition bg-gradient-to-r from-indigo-600 to-[#8A7DFF] py-3 px-8 rounded-full text-white">
-                            <span>Read more</span>
-                            <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M12.53 6.53a.75.75 0 0 0 0-1.06L7.757.697a.75.75 0 1 0-1.06 1.06L10.939 6l-4.242 4.243a.75.75 0 0 0 1.06 1.06zM0 6v.75h12v-1.5H0z"
-                                    fill="#fff" />
-                            </svg>
-                        </button>
-                    </div>
-                </section>
-
-                <h1 className="text-3xl font-semibold text-center mx-auto pt-20 uppercase text-[#4D273F]">About our apps</h1>
-                <p className="text-sm text-slate-500 text-center mt-2 max-w-md mx-auto">
-                    A visual collection of our most recent works - each piece crafted with intention, emotion and style.
-                </p>
-                <div className="max-w-8xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 py-10">
-                    <div className="size-[520px] rounded-full absolute blur-[300px] -z-10 bg-[#E6B59E]"></div>
-                    <img className="max-w-sm w-full rounded-xl h-auto"
-                        src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?q=80&w=830&h=844&auto=format&fit=crop"
-                        alt="" />
-                    <div>
-                        <h1 className="text-3xl font-semibold">Our Latest features</h1>
-                        <p className="text-sm text-slate-500 mt-2">
-                            Ship Beautiful Frontends Without the Overhead — Customizable, Scalable and Developer-Friendly UI
-                            Components.
+                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                            Dr. Muhammad Ahmad Rana
+                        </h1>
+                        <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                            Pioneering Mental Health & Addiction Psychiatry with Innovative Treatment Solutions
                         </p>
-
-                        <div className="flex flex-col gap-10 mt-6">
-                            <div className="flex items-center gap-4">
-                                <div className="size-9 p-2 bg-indigo-50 border border-indigo-200 rounded">
-                                    <img src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/flashEmoji.png" alt="" />
-                                </div>
-                                <div>
-                                    <h3 className="text-base font-medium text-slate-600">Lightning-Fast Performance</h3>
-                                    <p className="text-sm text-slate-500">Built with speed — minimal load times and optimized.</p>
-                                </div>
+                        <div className="mt-8 flex flex-wrap justify-center gap-4">
+                            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white">
+                                <Award className="w-5 h-5 mr-2" />
+                                <span>MBBS, Multiple Diplomas</span>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <div className="size-9 p-2 bg-indigo-50 border border-indigo-200 rounded">
-                                    <img src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/colorsEmoji.png" alt="" />
-                                </div>
-                                <div>
-                                    <h3 className="text-base font-medium text-slate-600">Beautifully Designed Components</h3>
-                                    <p className="text-sm text-slate-500">Modern, pixel-perfect UI components ready for any project.</p>
-                                </div>
+                            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white">
+                                <Brain className="w-5 h-5 mr-2" />
+                                <span>Addiction Specialist</span>
                             </div>
-                            <div className="flex items-center gap-4">
-                                <div className="size-9 p-2 bg-indigo-50 border border-indigo-200 rounded">
-                                    <img src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/aboutSection/puzzelEmoji.png" alt="" />
-                                </div>
-                                <div>
-                                    <h3 className="text-base font-medium text-slate-600">Plug-and-Play Integration</h3>
-                                    <p className="text-sm text-slate-500">Simple setup with support for React, Next.js and Tailwind css.</p>
-                                </div>
+                            <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white">
+                                <Heart className="w-5 h-5 mr-2" />
+                                <span>Mental Health Expert</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
-    );
-}
 
-export default AboutPage
+            {/* About Section */}
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div className="space-y-8">
+                            <div>
+                                <h2 className="text-4xl font-bold text-gray-900 mb-6 uppercase">
+                                    About <span style={{ color: '#4D273F' }}>Dr. Rana</span>
+                                </h2>
+                                <div className="w-24 h-1 rounded-full mb-8" style={{ backgroundColor: '#E6B59E' }}></div>
+                            </div>
+                            <p className="text-lg text-gray-700 leading-relaxed">
+                                Dr. Muhammad Ahmad Rana is a highly skilled and dedicated professional specializing in mental health, addiction psychiatry, and innovative treatment methods. His expertise spans cutting-edge addiction treatment practices, including rapid anesthesia-assisted drug detox, photobiomodulation, and neural regeneration.
+                            </p>
+                            <p className="text-lg text-gray-700 leading-relaxed">
+                                His commitment to improving patient outcomes involves advanced techniques such as nano-particle infusions and telemedicine. Dr. Rana's innovative approach delivers comprehensive care that addresses both the physical and psychological aspects of addiction, empowering individuals to overcome challenges and achieve lasting recovery.
+                            </p>
+                            <div className="bg-gradient-to-r from-purple-50 to-orange-50 p-6 rounded-2xl border-l-4" style={{ borderColor: '#4D273F' }}>
+                                <p className="text-gray-800 font-medium italic">
+                                    "Deeply committed to providing compassionate, evidence-based care, ensuring each person receives the personalized support they need for their recovery journey."
+                                </p>
+                            </div>
+                        </div>
+                        {/* ===== IMAGE PLACEMENT START - Tasveer lagane ki jagah shuru ===== */}
+                        <div className="relative flex items-center justify-center">
+                            {/* Image Card */}
+                            <div className="relative rounded-3xl shadow-2xl overflow-hidden w-72 sm:w-80 md:w-96 z-10">
+                                <img
+                                    loading="lazy"
+                                    src={ownerImg} // Replace with actual image path
+                                    alt="Dr. Muhammad Ahmad Rana"
+                                    className="w-full h-full object-cover object-center aspect-[4/5] transition-transform duration-500 hover:scale-105"
+                                />
+                            </div>
+                        </div>
+                        {/* ===== IMAGE PLACEMENT END - Tasveer lagane ki jagah khatam ===== */}
+
+                    </div>
+                </div>
+            </section>
+
+            {/* Specialties Grid */}
+            <section className="py-20 bg-gradient-to-r from-[#4D273F] to-[#1a0e1f]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold text-white mb-4 uppercase">Areas of Specialization</h2>
+                        <div className="w-24 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#E6B59E' }}></div>
+                        <p className="text-xl text-purple-100 max-w-3xl mx-auto">
+                            Pioneering innovative treatments and comprehensive care approaches in mental health and addiction recovery
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 mb-16">
+                        {specialties.map((specialty, index) => (
+                            <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2">
+                                <div className="flex items-center mb-4">
+                                    <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ backgroundColor: '#E6B59E' }}>
+                                        <Brain className="w-6 h-6" style={{ color: '#4D273F' }} />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white">{specialty}</h3>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div>
+                        <h3 className="text-2xl font-bold text-white mb-8 text-center uppercase">Core Expertise</h3>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {expertise.map((item, index) => (
+                                <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center hover:bg-white/10 transition-all duration-300">
+                                    <p className="text-white font-medium">{item}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Qualifications */}
+            <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4 uppercase">
+                            <span style={{ color: '#4D273F' }}>Education & Qualifications</span>
+                        </h2>
+                        <div className="w-24 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#E6B59E' }}></div>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Comprehensive academic background spanning medical education and specialized training across multiple disciplines
+                        </p>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-12">
+                        <div>
+                            <div className="flex items-center mb-8">
+                                <GraduationCap className="w-8 h-8 mr-4" style={{ color: '#4D273F' }} />
+                                <h3 className="text-2xl font-bold text-gray-900">Academic Credentials</h3>
+                            </div>
+                            <div className="space-y-4">
+                                {qualifications.map((qualification, index) => (
+                                    <div key={index} className="flex items-start group">
+                                        <div className="flex-shrink-0 w-4 h-4 rounded-full mt-2 mr-4 transition-all duration-300" style={{ backgroundColor: '#E6B59E' }}></div>
+                                        <p className="text-gray-700 group-hover:text-gray-900 transition-colors duration-300 font-medium">{qualification}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="relative">
+                            <div className="bg-gradient-to-br from-purple-100 to-orange-100 rounded-2xl p-8 h-full">
+                                <h3 className="text-2xl font-bold mb-6" style={{ color: '#4D273F' }}>Educational Journey</h3>
+                                <div className="space-y-6">
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 text-lg mb-2">Punjab University</h4>
+                                        <p className="text-gray-700">Bachelor of Medicine, Bachelor of Surgery (MBBS)</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 text-lg mb-2">Australian Institutions</h4>
+                                        <p className="text-gray-700">Multiple specialized diplomas in Mental Health, Hospital Management, Training Design & Development, Vocational Education & Training, and Business</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900 text-lg mb-2">Professional Certification</h4>
+                                        <p className="text-gray-700">Master Trainer certification in First Aid and Mental Health</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Call to Action */}
+            <section className="py-20 bg-gradient-to-r from-black via-gray-900 to-black">
+                <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-4xl font-bold text-white mb-6">
+                        Ready to Begin Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a77996] to-[#E6B59E]">Recovery Journey?</span>
+                    </h2>
+                    <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Experience innovative, evidence-based treatment approaches designed to address your unique needs and support lasting recovery.
+                    </p>
+                    <div className="inline-flex items-center bg-gradient-to-r from-[#4D273F] to-[#E6B59E] rounded-full px-8 py-4 text-white font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <Heart className="w-6 h-6 mr-2" />
+                        Schedule Your Consultation
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default About;
