@@ -1,6 +1,5 @@
 import React from 'react';
 import { Award, MapPin, GraduationCap, Stethoscope, Brain, Heart } from 'lucide-react';
-import ownerImg from "../assets/owner.png"
 
 const About = () => {
     const specialties = [
@@ -90,20 +89,30 @@ const About = () => {
                                 </p>
                             </div>
                         </div>
-                        {/* ===== IMAGE PLACEMENT START - Tasveer lagane ki jagah shuru ===== */}
-                        <div className="relative flex items-center justify-center">
-                            {/* Image Card */}
-                            <div className="relative rounded-3xl shadow-2xl overflow-hidden w-72 sm:w-80 md:w-96 z-10">
-                                <img
-                                    loading="lazy"
-                                    src={ownerImg} // Replace with actual image path
-                                    alt="Dr. Muhammad Ahmad Rana"
-                                    className="w-full h-full object-cover object-center aspect-[4/5] transition-transform duration-500 hover:scale-105"
-                                />
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#4D273F] to-[#E6B59E] rounded-3xl transform rotate-3"></div>
+                            <div className="relative bg-white p-8 rounded-3xl shadow-2xl">
+                                <div className="text-center mb-6">
+                                    <div className="w-20 h-20 rounded-full bg-gradient-to-r from-[#4D273F] to-[#E6B59E] mx-auto mb-4 flex items-center justify-center">
+                                        <Stethoscope className="w-10 h-10 text-white" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold" style={{ color: '#4D273F' }}>Contact Information</h3>
+                                </div>
+                                <div className="space-y-4">
+                                    <div className="flex items-start">
+                                        <MapPin className="w-6 h-6 mt-1 mr-3" style={{ color: '#4D273F' }} />
+                                        <div>
+                                            <p className="font-semibold text-gray-900">Office Location</p>
+                                            <p className="text-gray-600">2307 Beverley Rd<br />Brooklyn, New York 11226<br />United States</p>
+                                        </div>
+                                    </div>
+                                    <div className="pt-4 border-t border-gray-200">
+                                        <p className="text-sm font-medium text-gray-500">Specialized Services</p>
+                                        <p className="text-gray-800 mt-1">Innovative addiction psychiatry, rapid anesthesia-assisted detox, mental health treatment, neural regeneration, photobiomodulation, and telemedicine for comprehensive recovery solutions.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        {/* ===== IMAGE PLACEMENT END - Tasveer lagane ki jagah khatam ===== */}
-
                     </div>
                 </div>
             </section>
