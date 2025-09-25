@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { PhoneCall, Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { PhoneCall, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -8,9 +8,9 @@ const Navbar = () => {
   // Prevent body scroll when sidebar is open
   useEffect(() => {
     if (sidebarOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
   }, [sidebarOpen]);
 
@@ -21,18 +21,40 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-14 text-base">
-          <Link to="/" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Home</p></Link>
-          <Link to="/about" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>About</p></Link>
-          <Link to="/services" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Services</p></Link>
-          <Link to="/blog" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Blog</p></Link>
-          <Link to="/contact" onClick={() => scrollTo(0, 0)}><p className='hover:text-[#E6B59E] transition-all duration-300'>Contact</p></Link>
+          <Link to="/" onClick={() => scrollTo(0, 0)}>
+            <p className="hover:text-[#E6B59E] transition-all duration-300">
+              Home
+            </p>
+          </Link>
+          <Link to="/about" onClick={() => scrollTo(0, 0)}>
+            <p className="hover:text-[#E6B59E] transition-all duration-300">
+              About
+            </p>
+          </Link>
+          <Link to="/services" onClick={() => scrollTo(0, 0)}>
+            <p className="hover:text-[#E6B59E] transition-all duration-300">
+              Services
+            </p>
+          </Link>
+          <Link to="/blog" onClick={() => scrollTo(0, 0)}>
+            <p className="hover:text-[#E6B59E] transition-all duration-300">
+              Blog
+            </p>
+          </Link>
+          <Link to="/contact" onClick={() => scrollTo(0, 0)}>
+            <p className="hover:text-[#E6B59E] transition-all duration-300">
+              Contact
+            </p>
+          </Link>
         </div>
 
         {/* Contact Button Desktop */}
         <div className="hidden lg:flex relative group items-center gap-4 font-medium text-[17px] px-4 py-2 rounded-full border border-[#4D273F] hover:border-white cursor-pointer overflow-hidden transition-colors duration-500 bg-white">
           <span className="absolute inset-0 bg-[#4D273F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
-          <p className="relative z-10 text-black group-hover:text-white transition-colors duration-500">(888) 456 7890</p>
-          <p className="relative z-10 flex items-center justify-center rounded-full p-3 bg-[#4D273F] group-hover:bg-[#E6B59E] text-white group-hover:text-black transition-colors duration-500">
+          <p className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
+            (888) 456 7890
+          </p>
+          <p className="relative z-10 flex items-center justify-center rounded-full p-2 bg-[#4D273F] group-hover:bg-[#E6B59E] text-white group-hover:text-black transition-colors duration-500">
             <PhoneCall size={16} />
           </p>
         </div>
@@ -48,7 +70,7 @@ const Navbar = () => {
       {/* Sidebar */}
       <div
         className={`fixed top-0 right-0 h-full bg-[#000000] w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
-        ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-end p-4 cursor-pointer">
           <button onClick={() => setSidebarOpen(false)}>
@@ -56,11 +78,21 @@ const Navbar = () => {
           </button>
         </div>
         <ul className="flex flex-col gap-6 mt-10 ml-6 text-base">
-          <a href="#home" onClick={() => setSidebarOpen(false)}><li>Home</li></a>
-          <a href="#about" onClick={() => setSidebarOpen(false)}><li>About</li></a>
-          <a href="#services" onClick={() => setSidebarOpen(false)}><li>Services</li></a>
-          <a href="#blog" onClick={() => setSidebarOpen(false)}><li>Blog</li></a>
-          <a href="#contact" onClick={() => setSidebarOpen(false)}><li>Contact</li></a>
+          <a href="#home" onClick={() => setSidebarOpen(false)}>
+            <li>Home</li>
+          </a>
+          <a href="#about" onClick={() => setSidebarOpen(false)}>
+            <li>About</li>
+          </a>
+          <a href="#services" onClick={() => setSidebarOpen(false)}>
+            <li>Services</li>
+          </a>
+          <a href="#blog" onClick={() => setSidebarOpen(false)}>
+            <li>Blog</li>
+          </a>
+          <a href="#contact" onClick={() => setSidebarOpen(false)}>
+            <li>Contact</li>
+          </a>
         </ul>
       </div>
 
