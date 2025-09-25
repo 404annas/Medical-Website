@@ -1,12 +1,12 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './screens/HomePage';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import AboutPage from './screens/AboutPage';
-import ServicesPage from './screens/ServicesPage';
-import ContactPage from './screens/ContactPage';
-import BlogPage from './screens/BlogPage';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./screens/HomePage";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import AboutPage from "./screens/AboutPage";
+import ServicesPage from "./screens/ServicesPage";
+import ContactPage from "./screens/ContactPage";
+import BlogPage from "./screens/BlogPage";
 
 function App() {
   return (
