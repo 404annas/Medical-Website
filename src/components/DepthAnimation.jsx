@@ -24,8 +24,8 @@ const Card = ({ card, index, z }) => {
       }}
       className={`absolute w-full top-0 bottom-0 flex items-center ${
         index % 2 === 0
-          ? "right-[50%] md:right-[50%]"
-          : "left-[50%] md:left-[70%] "
+          ? "right-[50%] md:right-[60%]"
+          : "left-[50%] md:left-[55%] "
       } `}
     >
       <motion.div
@@ -40,7 +40,7 @@ const Card = ({ card, index, z }) => {
           style={{
             textShadow: "20px 20px 20px rgba(0, 0, 0, 0.5)",
           }}
-          className="text-8xl text-black w-full"
+          className="text-6xl text-center text-black w-full"
         >
           {card.name}
         </h1>
@@ -87,47 +87,53 @@ export default function DepthAnimation() {
   }, []);
 
   const cardData = [
-    { id: "centerCard", name: "Olivia Pierson" },
-    { id: "fifthCard", name: "Jenny Farley" },
-    { id: "firstCard", name: "FunnyMike" },
-    { name: "Bhad Bhabie" },
-    { id: "leftCard", name: "Ray William Johnson" },
-    { id: "rightCard", name: "Brittany Furlan" },
+    { id: "mentalHealth", name: "Area of Expertise" },
+    { id: "addictionTreatment", name: "Alcohol and Drug Addiction Treatment" },
+    { id: "psychiatry", name: "Innovative Addiction Psychiatry" },
+    { id: "rapidDetox", name: "Rapid Anesthesia-Assisted Drug Detox" },
+    { id: "photobiomodulation", name: "Photobiomodulation" },
+    { id: "neuralRegen", name: "Neural Regeneration" },
+    { id: "nanoInfusions", name: "Nano-Particle Infusions" },
+    // { id: "telemedicine", name: "Telemedicine" },
+    // { id: "training", name: "First Aid & Mental Health Training" },
+    // { id: "recoveryManagement", name: "Addiction Recovery Management" },
+    // {
+    //   id: "holisticTreatment",
+    //   name: "Holistic and Evidence-Based Treatment Approaches",
+    // },
   ];
 
   return (
-    <>
+    <div
+      ref={containerRef}
+      className="h-[1500vh] relative flex justify-center scroll-smooth"
+    >
       <div
-        ref={containerRef}
-        className="h-[1500vh] relative flex justify-center scroll-smooth"
+        className="h-[100vh] w-screen flex justify-center items-center overflow-hidden bg-cover bg-center bg-no-repeat sticky top-0 bg-white"
+        style={{ perspective: "1000px" }}
       >
-        <div
-          className="h-[100vh] w-screen flex justify-center items-center overflow-hidden bg-cover bg-center bg-no-repeat sticky top-0 bg-white"
-          style={{ perspective: "1000px" }}
+        {/* Converted to motion.div to accept transform motion value */}
+        <motion.div
+          className="relative w-[12rem] md:w-[16rem] lg:w-[50rem] md:h-[16rem] lg:h-[20rem] flex flex-col lg:flex-row max-lg:gap-6 py-10 lg:pt-36 max-lg:items-center justify-center"
+          style={{
+            transform: zTransform, // Apply the motion value for transform
+            transformStyle: "preserve-3d",
+          }}
         >
-          {/* Converted to motion.div to accept transform motion value */}
-          <motion.div
-            className="relative w-[12rem] md:w-[16rem] lg:w-[40rem] md:h-[16rem] lg:h-[20rem] flex flex-col lg:flex-row max-lg:gap-6 py-10 lg:pt-36 max-lg:items-center justify-center"
+          <div
+            className="text-5xl font-bold anton text-black text-center uppercase"
             style={{
-              transform: zTransform, // Apply the motion value for transform
+              transform: "translate3d(0px,0px,-300rem)",
               transformStyle: "preserve-3d",
             }}
-          >
-            <div
-              className="text-5xl font-bold anton text-black text-center uppercase"
-              style={{
-                transform: "translate3d(0px,0px,-300rem)",
-                transformStyle: "preserve-3d",
-              }}
-            ></div>
+          ></div>
 
-            {/* Map over cardData and render the new Card component */}
-            {cardData.map((card, index) => (
-              <Card key={index} card={card} index={index} z={z} />
-            ))}
-          </motion.div>
-        </div>
+          {/* Map over cardData and render the new Card component */}
+          {cardData.map((card, index) => (
+            <Card key={index} card={card} index={index} z={z} />
+          ))}
+        </motion.div>
       </div>
-    </>
+    </div>
   );
 }
