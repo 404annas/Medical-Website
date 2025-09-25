@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [navbarVisible, setNavbarVisible] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Animate navbar entrance
   useEffect(() => {
@@ -13,6 +14,20 @@ const Navbar = () => {
     }, 800); // Delay of 800ms before animation starts
 
     return () => clearTimeout(timer);
+  }, []);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Prevent body scroll when sidebar is open
@@ -26,11 +41,16 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 bg-[#000000] text-white px-4 py-4 transform transition-all duration-1000 ease-out
+      className={`fixed top-0 w-full z-50 text-white px-4 py-4 transform transition-all duration-1000 ease-out
         ${
           navbarVisible
             ? "translate-x-0 opacity-100"
             : "-translate-x-full opacity-0"
+        }
+        ${
+          isScrolled
+            ? "bg-[#000000] backdrop-blur-md shadow-lg"
+            : "bg-transparent"
         }`}
     >
       <div className="flex items-center justify-between">
@@ -69,7 +89,7 @@ const Navbar = () => {
         <div className="hidden lg:flex relative group items-center gap-4 font-medium text-[17px] px-4 py-2 rounded-full border border-[#4D273F] hover:border-white cursor-pointer overflow-hidden transition-colors duration-500 bg-white">
           <span className="absolute inset-0 bg-[#4D273F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
           <p className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
-            (888) 456 7890
+            Get Care
           </p>
           <p className="relative z-10 flex items-center justify-center rounded-full p-2 bg-[#4D273F] group-hover:bg-[#E6B59E] text-white group-hover:text-black transition-colors duration-500">
             <PhoneCall size={16} />
@@ -86,7 +106,7 @@ const Navbar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed hidden top-0 right-0 h-full bg-[#000000] w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
+        className={`fixed top-0 right-0 h-full bg-[#000000] w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
         ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-end p-4 cursor-pointer">

@@ -31,7 +31,6 @@ const Card = ({ card, index, z }) => {
       <motion.div
         style={{
           opacity: opacity, // Apply the motion value directly
-          textShadow: "2px 2px 20px rgba(0, 0, 0, 0.5)",
         }}
         className={`text-white z-10 w-full absolute transition-all duration-200 ease-in ${
           index % 2 === 0 ? "left-[60%]" : "right-[60%] "
@@ -98,11 +97,6 @@ export default function DepthAnimation() {
 
   return (
     <>
-      <div className="bg-white py-4">
-        <h1 className="text-8xl font-bold flex items-center justify-center">
-          Our Services
-        </h1>
-      </div>
       <div
         ref={containerRef}
         className="h-[1500vh] relative flex justify-center scroll-smooth"
