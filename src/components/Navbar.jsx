@@ -4,6 +4,16 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [navbarVisible, setNavbarVisible] = useState(false);
+
+  // Animate navbar entrance
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNavbarVisible(true);
+    }, 800); // Delay of 800ms before animation starts
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Prevent body scroll when sidebar is open
   useEffect(() => {
@@ -15,7 +25,14 @@ const Navbar = () => {
   }, [sidebarOpen]);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#000000] text-white px-4 py-4">
+    <nav
+      className={`sticky top-0 z-50 bg-[#000000] text-white px-4 py-4 transform transition-all duration-1000 ease-out
+        ${
+          navbarVisible
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-full opacity-0"
+        }`}
+    >
       <div className="flex items-center justify-between">
         <h1 className="text-4xl font-medium">Eldiora</h1>
 
@@ -69,7 +86,7 @@ const Navbar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full bg-[#000000] w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
+        className={`fixed hidden top-0 right-0 h-full bg-[#000000] w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
         ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-end p-4 cursor-pointer">

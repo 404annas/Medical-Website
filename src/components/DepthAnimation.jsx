@@ -97,36 +97,43 @@ export default function DepthAnimation() {
   ];
 
   return (
-    <div
-      ref={containerRef}
-      className="h-[1500vh] relative flex justify-center scroll-smooth"
-    >
+    <>
+      <div className="bg-white py-4">
+        <h1 className="text-8xl font-bold flex items-center justify-center">
+          Our Services
+        </h1>
+      </div>
       <div
-        className="h-[100vh] w-screen flex justify-center items-center overflow-hidden bg-cover bg-center bg-no-repeat sticky top-0 bg-white"
-        style={{ perspective: "1000px" }}
+        ref={containerRef}
+        className="h-[1500vh] relative flex justify-center scroll-smooth"
       >
-        {/* Converted to motion.div to accept transform motion value */}
-        <motion.div
-          className="relative w-[12rem] md:w-[16rem] lg:w-[40rem] md:h-[16rem] lg:h-[20rem] flex flex-col lg:flex-row max-lg:gap-6 py-10 lg:pt-36 max-lg:items-center justify-center"
-          style={{
-            transform: zTransform, // Apply the motion value for transform
-            transformStyle: "preserve-3d",
-          }}
+        <div
+          className="h-[100vh] w-screen flex justify-center items-center overflow-hidden bg-cover bg-center bg-no-repeat sticky top-0 bg-white"
+          style={{ perspective: "1000px" }}
         >
-          <div
-            className="text-5xl font-bold anton text-black text-center uppercase"
+          {/* Converted to motion.div to accept transform motion value */}
+          <motion.div
+            className="relative w-[12rem] md:w-[16rem] lg:w-[40rem] md:h-[16rem] lg:h-[20rem] flex flex-col lg:flex-row max-lg:gap-6 py-10 lg:pt-36 max-lg:items-center justify-center"
             style={{
-              transform: "translate3d(0px,0px,-300rem)",
+              transform: zTransform, // Apply the motion value for transform
               transformStyle: "preserve-3d",
             }}
-          ></div>
+          >
+            <div
+              className="text-5xl font-bold anton text-black text-center uppercase"
+              style={{
+                transform: "translate3d(0px,0px,-300rem)",
+                transformStyle: "preserve-3d",
+              }}
+            ></div>
 
-          {/* Map over cardData and render the new Card component */}
-          {cardData.map((card, index) => (
-            <Card key={index} card={card} index={index} z={z} />
-          ))}
-        </motion.div>
+            {/* Map over cardData and render the new Card component */}
+            {cardData.map((card, index) => (
+              <Card key={index} card={card} index={index} z={z} />
+            ))}
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
