@@ -104,7 +104,7 @@ const Navbar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed lg:hidden block top-0 right-0 h-full bg-[#000000] w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
+        className={`fixed lg:hidden block top-0 right-0 h-full bg-black w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
         ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex justify-end p-4 cursor-pointer">
@@ -113,21 +113,21 @@ const Navbar = () => {
           </button>
         </div>
         <ul className="flex flex-col gap-6 mt-10 ml-6 text-base">
-          <a href="#home" onClick={() => setSidebarOpen(false)}>
+          <Link to="/" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
             <li>Home</li>
-          </a>
-          <a href="#about" onClick={() => setSidebarOpen(false)}>
+          </Link>
+          <Link to="/about" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
             <li>About</li>
-          </a>
-          <a href="#services" onClick={() => setSidebarOpen(false)}>
+          </Link>
+          <Link to="/services" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
             <li>Services</li>
-          </a>
-          <a href="#blog" onClick={() => setSidebarOpen(false)}>
+          </Link>
+          <Link to="/blog" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
             <li>Blog</li>
-          </a>
-          <a href="#contact" onClick={() => setSidebarOpen(false)}>
+          </Link>
+          <Link to="/contact" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
             <li>Contact</li>
-          </a>
+          </Link>
         </ul>
       </div>
 
