@@ -1,144 +1,162 @@
-import React, { useState, useEffect } from "react";
-import { PhoneCall, Menu, X } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 const Navbar = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [navbarVisible, setNavbarVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Animate navbar entrance
+  // Effect for component mount animation
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setNavbarVisible(true);
-    }, 800); // Delay of 800ms before animation starts
-
-    return () => clearTimeout(timer);
+    const timeout = setTimeout(() => setIsMounted(true), 100); // Short delay for transition
+    return () => clearTimeout(timeout);
   }, []);
 
-  // Handle scroll effect
+  // Effect for scroll detection
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when sidebar is open
+  // Effect to lock body scroll when menu is open
   useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [sidebarOpen]);
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+  }, [isMenuOpen]);
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
+  ];
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 text-white px-4 py-4 transform transition-all duration-1000 ease-out
-        ${navbarVisible
-          ? "translate-x-0 opacity-100"
-          : "-translate-x-full opacity-0"
-        }
-        ${isScrolled
-          ? "bg-[#000000] backdrop-blur-md shadow-lg"
-          : "bg-transparent"
-        }`}
-    >
-      <div className="flex items-center justify-between">
-        <h1 className="text-4xl font-medium">Eldiora</h1>
-
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-14 text-base">
-          <Link to="/" onClick={() => scrollTo(0, 0)}>
-            <p className="hover:text-[#E6B59E] transition-all duration-300">
-              Home
-            </p>
-          </Link>
-          <Link to="/about" onClick={() => scrollTo(0, 0)}>
-            <p className="hover:text-[#E6B59E] transition-all duration-300">
-              About
-            </p>
-          </Link>
-          <Link to="/services" onClick={() => scrollTo(0, 0)}>
-            <p className="hover:text-[#E6B59E] transition-all duration-300">
-              Services
-            </p>
-          </Link>
-          <Link to="/blog" onClick={() => scrollTo(0, 0)}>
-            <p className="hover:text-[#E6B59E] transition-all duration-300">
-              Blog
-            </p>
-          </Link>
-          <Link to="/contact" onClick={() => scrollTo(0, 0)}>
-            <p className="hover:text-[#E6B59E] transition-all duration-300">
-              Contact
-            </p>
-          </Link>
-        </div>
-
-        {/* Contact Button Desktop */}
-        <div className="hidden lg:flex relative group items-center gap-4 font-medium text-[17px] px-4 py-2 rounded-full border border-[#4D273F] hover:border-white cursor-pointer overflow-hidden transition-colors duration-500 bg-white">
-          <span className="absolute inset-0 bg-[#4D273F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
-          <p className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
-            Get Care
-          </p>
-          <p className="relative z-10 flex items-center justify-center rounded-full p-2 bg-[#4D273F] group-hover:bg-[#E6B59E] text-white group-hover:text-black transition-colors duration-500">
-            <PhoneCall size={16} />
-          </p>
-        </div>
-
-        {/* Mobile Menu Icon */}
-        <div className="lg:hidden cursor-pointer">
-          <button onClick={() => setSidebarOpen(true)}>
-            <Menu size={24} />
-          </button>
-        </div>
-      </div>
-
-      {/* Sidebar */}
-      <div
-        className={`fixed lg:hidden block top-0 right-0 h-full bg-black w-3/4 max-w-xs z-50 transform transition-transform duration-500 ease-in-out
-        ${sidebarOpen ? "translate-x-0" : "translate-x-full"}`}
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out
+          ${
+            isScrolled
+              ? "bg-black/60 shadow-lg backdrop-blur-xl "
+              : "bg-transparent"
+          }
+          ${
+            isMounted
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full"
+          }
+        `}
       >
-        <div className="flex justify-end p-4 cursor-pointer">
-          <button onClick={() => setSidebarOpen(false)}>
-            <X size={24} />
+        <div className="max-w-8xl mx-auto px-6 sm:px-6">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Link
+              to="/"
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-3xl text-white font-bold tracking-tighter"
+            >
+              Eldiora
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden  lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Desktop CTA */}
+            <div className="hidden lg:flex">
+              <button className="group relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden rounded-full bg-purple-600 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-900/50">
+                <Phone className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
+                <span>Get Care</span>
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden cursor-pointer">
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="p-2 -mr-2 text-white cursor-pointer"
+              >
+                <Menu size={30} className="" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* --- Mobile Menu Overlay --- */}
+      <div
+        className={`fixed inset-0 z-[100] bg-gray-900/95 backdrop-blur-xl transition-opacity duration-500 ease-in-out lg:hidden
+          ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
+        `}
+      >
+        <div className="flex justify-between items-center p-6 h-20 border-b border-gray-800">
+          <Link
+            to="/"
+            onClick={handleLinkClick}
+            className="text-3xl text-white font-bold tracking-tighter"
+          >
+            Eldiora
+          </Link>
+          <button onClick={() => setIsMenuOpen(false)} className="p-2 -mr-2">
+            <X className="text-white" size={30} />
           </button>
         </div>
-        <ul className="flex flex-col gap-6 mt-10 ml-6 text-base">
-          <Link to="/" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
-            <li>Home</li>
-          </Link>
-          <Link to="/about" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
-            <li>About</li>
-          </Link>
-          <Link to="/services" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
-            <li>Services</li>
-          </Link>
-          <Link to="/blog" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
-            <li>Blog</li>
-          </Link>
-          <Link to="/contact" onClick={() => {setSidebarOpen(false); scrollTo(0, 0);}}>
-            <li>Contact</li>
-          </Link>
-        </ul>
+        <div className="flex flex-col items-center justify-center h-[calc(100%-5rem)]">
+          <ul className="text-center space-y-8">
+            {navLinks.map((link, index) => (
+              <li
+                key={link.href}
+                className={`transition-all duration-500 ease-out ${
+                  isMenuOpen
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <Link
+                  to={link.href}
+                  onClick={handleLinkClick}
+                  className="text-3xl font-semibold text-gray-300 hover:text-purple-400 transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div
+            className={`absolute bottom-16 transition-all duration-500 ease-out ${
+              isMenuOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: `${navLinks.length * 100}ms` }}
+          >
+            <button className="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden rounded-full bg-purple-600 text-white font-semibold text-lg">
+              <Phone className="w-5 h-5 mr-3" />
+              <span>Get Care</span>
+            </button>
+          </div>
+        </div>
       </div>
-
-      {/* Overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 bg-opacity-50 backdrop-blur-sm z-40"
-          onClick={() => setSidebarOpen(false)}
-        ></div>
-      )}
-    </nav>
+    </>
   );
 };
 

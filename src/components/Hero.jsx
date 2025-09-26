@@ -85,7 +85,7 @@ const Hero = () => {
         loading="lazy"
         src={heroImg}
         alt="Hero"
-        className="absolute top-0 left-0 w-full h-full object-cover object-top-right lg:object-top"
+        className="absolute top-0 left-0 w-full h-full object-cover object-top-center lg:object-top"
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
