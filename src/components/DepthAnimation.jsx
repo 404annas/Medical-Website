@@ -24,8 +24,8 @@ const Card = ({ card, index, z }) => {
       }}
       className={`absolute w-full top-0 bottom-0 flex items-center ${
         index % 2 === 0
-          ? "right-[50%] md:right-[60%]"
-          : "left-[50%] md:left-[55%] "
+          ? "right-[55%] md:right-[60%]"
+          : "left-[55%] md:left-[55%] "
       } `}
     >
       <motion.div
@@ -40,7 +40,7 @@ const Card = ({ card, index, z }) => {
           style={{
             textShadow: "20px 20px 20px rgba(0, 0, 0, 0.5)",
           }}
-          className="text-6xl text-center text-black w-full"
+          className="text-2xl md:text-6xl text-center text-black w-full"
         >
           {card.name}
         </h1>
@@ -87,13 +87,13 @@ export default function DepthAnimation() {
   }, []);
 
   const cardData = [
-    { id: "mentalHealth", name: "Area of Expertise" },
-    { id: "addictionTreatment", name: "Alcohol and Drug Addiction Treatment" },
-    { id: "psychiatry", name: "Innovative Addiction Psychiatry" },
-    { id: "rapidDetox", name: "Rapid Anesthesia-Assisted Drug Detox" },
-    { id: "photobiomodulation", name: "Photobiomodulation" },
-    { id: "neuralRegen", name: "Neural Regeneration" },
-    { id: "nanoInfusions", name: "Nano-Particle Infusions" },
+    { id: "mentalHealth", name: "Expertise" },
+    { id: "addictionTreatment", name: "Alcohol Treatment" },
+    { id: "psychiatry", name: "Innovative" },
+    { id: "rapidDetox", name: "Rapid Detox" },
+    { id: "photobiomodulation", name: "Photobio" },
+    { id: "neuralRegen", name: "Neural Service" },
+    { id: "nanoInfusions", name: "Nano-Particle" },
     // { id: "telemedicine", name: "Telemedicine" },
     // { id: "training", name: "First Aid & Mental Health Training" },
     // { id: "recoveryManagement", name: "Addiction Recovery Management" },

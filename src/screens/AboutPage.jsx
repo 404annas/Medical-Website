@@ -5,7 +5,7 @@ import ownerImg from "../assets/owner.png"
 const About = () => {
     const specialties = [
         "Addiction Psychiatry",
-        "Mental Health Treatment and Management"
+        "Mental Health Treatment"
     ];
 
     const expertise = [
@@ -36,30 +36,30 @@ const About = () => {
     return (
         <div className="min-h-screen bg-gradient-to-r from-black via-gray-900 to-black">
             {/* Hero Section */}
-            <div className="relative overflow-hidden pt-20">
+            <div className="relative overflow-hidden pt-12 sm:pt-20">
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                     <div className="text-center">
                         {/* <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-r from-[#4D273F] to-[#E6B59E] mb-8 mx-auto shadow-2xl">
                             <Stethoscope className="w-12 h-12 text-white" />
                         </div> */}
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
                             Dr. Muhammad Ahmad Rana
                         </h1>
-                        <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                        <p className="text-sm sm:text-base md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
                             Pioneering Mental Health & Addiction Psychiatry with Innovative Treatment Solutions
                         </p>
                         <div className="mt-8 flex flex-wrap justify-center gap-4">
                             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white">
                                 <Award className="w-5 h-5 mr-2" />
-                                <span>MBBS, Multiple Diplomas</span>
+                                <span className='text-sm sm:text-base'>MBBS, Multiple Diplomas</span>
                             </div>
                             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white">
                                 <Brain className="w-5 h-5 mr-2" />
-                                <span>Addiction Specialist</span>
+                                <span className='text-sm sm:text-base'>Addiction Specialist</span>
                             </div>
                             <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 text-white">
                                 <Heart className="w-5 h-5 mr-2" />
-                                <span>Mental Health Expert</span>
+                                <span className='text-sm sm:text-base'>Mental Health Expert</span>
                             </div>
                         </div>
                     </div>
@@ -72,19 +72,19 @@ const About = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8">
                             <div>
-                                <h2 className="text-4xl font-bold text-gray-900 mb-6 uppercase">
+                                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 uppercase">
                                     About <span style={{ color: '#4D273F' }}>Dr. Rana</span>
                                 </h2>
                                 <div className="w-24 h-1 rounded-full mb-8" style={{ backgroundColor: '#E6B59E' }}></div>
                             </div>
-                            <p className="text-lg text-gray-700 leading-relaxed">
+                            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                                 Dr. Muhammad Ahmad Rana is a highly skilled and dedicated professional specializing in mental health, addiction psychiatry, and innovative treatment methods. His expertise spans cutting-edge addiction treatment practices, including rapid anesthesia-assisted drug detox, photobiomodulation, and neural regeneration.
                             </p>
-                            <p className="text-lg text-gray-700 leading-relaxed">
+                            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
                                 His commitment to improving patient outcomes involves advanced techniques such as nano-particle infusions and telemedicine. Dr. Rana's innovative approach delivers comprehensive care that addresses both the physical and psychological aspects of addiction, empowering individuals to overcome challenges and achieve lasting recovery.
                             </p>
                             <div className="bg-gradient-to-r from-purple-50 to-orange-50 p-6 rounded-2xl border-l-4" style={{ borderColor: '#4D273F' }}>
-                                <p className="text-gray-800 font-medium italic">
+                                <p className="text-gray-800 text-sm sm:text-base font-medium italic">
                                     "Deeply committed to providing compassionate, evidence-based care, ensuring each person receives the personalized support they need for their recovery journey."
                                 </p>
                             </div>
@@ -111,28 +111,28 @@ const About = () => {
             <section className="py-20 bg-gradient-to-r from-[#4D273F] to-[#1a0e1f]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-white mb-4 uppercase">Areas of Specialization</h2>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 uppercase">Areas of Specialization</h2>
                         <div className="w-24 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#E6B59E' }}></div>
-                        <p className="text-xl text-purple-100 max-w-3xl mx-auto">
+                        <p className="text-base sm:text-xl text-purple-100 max-w-3xl mx-auto">
                             Pioneering innovative treatments and comprehensive care approaches in mental health and addiction recovery
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-8 mb-16">
                         {specialties.map((specialty, index) => (
-                            <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2">
-                                <div className="flex items-center mb-4">
+                            <div key={index} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-8 hover:bg-white/15 transition-all duration-300 transform hover:-translate-y-2">
+                                <div className="flex items-center">
                                     <div className="w-12 h-12 rounded-full flex items-center justify-center mr-4" style={{ backgroundColor: '#E6B59E' }}>
-                                        <Brain className="w-6 h-6" style={{ color: '#4D273F' }} />
+                                        <Brain className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#4D273F' }} />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white">{specialty}</h3>
+                                    <h3 className="text-base sm:text-xl font-bold text-white">{specialty}</h3>
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     <div>
-                        <h3 className="text-2xl font-bold text-white mb-8 text-center uppercase">Core Expertise</h3>
+                        <h3 className="text-3xl font-bold text-white mb-8 text-center uppercase">Core Expertise</h3>
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {expertise.map((item, index) => (
                                 <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-4 text-center hover:bg-white/10 transition-all duration-300">
@@ -148,11 +148,11 @@ const About = () => {
             <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4 uppercase">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 uppercase">
                             <span style={{ color: '#4D273F' }}>Education & Qualifications</span>
                         </h2>
                         <div className="w-24 h-1 rounded-full mx-auto mb-6" style={{ backgroundColor: '#E6B59E' }}></div>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
                             Comprehensive academic background spanning medical education and specialized training across multiple disciplines
                         </p>
                     </div>
@@ -179,15 +179,15 @@ const About = () => {
                                 <div className="space-y-6">
                                     <div>
                                         <h4 className="font-bold text-gray-900 text-lg mb-2">Punjab University</h4>
-                                        <p className="text-gray-700">Bachelor of Medicine, Bachelor of Surgery (MBBS)</p>
+                                        <p className="text-gray-700 text-sm sm:text-base">Bachelor of Medicine, Bachelor of Surgery (MBBS)</p>
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-gray-900 text-lg mb-2">Australian Institutions</h4>
-                                        <p className="text-gray-700">Multiple specialized diplomas in Mental Health, Hospital Management, Training Design & Development, Vocational Education & Training, and Business</p>
+                                        <p className="text-gray-700 text-sm sm:text-base">Multiple specialized diplomas in Mental Health, Hospital Management, Training Design & Development, Vocational Education & Training, and Business</p>
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-gray-900 text-lg mb-2">Professional Certification</h4>
-                                        <p className="text-gray-700">Master Trainer certification in First Aid and Mental Health</p>
+                                        <p className="text-gray-700 text-sm sm:text-base">Master Trainer certification in First Aid and Mental Health</p>
                                     </div>
                                 </div>
                             </div>
@@ -199,14 +199,14 @@ const About = () => {
             {/* Call to Action */}
             <section className="py-20 bg-gradient-to-r from-black via-gray-900 to-black">
                 <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-bold text-white mb-6">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 text-left">
                         Ready to Begin Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a77996] to-[#E6B59E]">Recovery Journey?</span>
                     </h2>
-                    <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                    <p className="text-base sm:text-xl text-gray-300 mb-8 leading-relaxed">
                         Experience innovative, evidence-based treatment approaches designed to address your unique needs and support lasting recovery.
                     </p>
-                    <div className="inline-flex items-center bg-gradient-to-r from-[#4D273F] to-[#E6B59E] rounded-full px-8 py-4 text-white font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-                        <Heart className="w-6 h-6 mr-2" />
+                    <div className="inline-flex items-center bg-gradient-to-r from-[#4D273F] to-[#E6B59E] rounded-full px-8 py-4 text-white font-bold text-sm sm:text-base md:text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                        <Heart className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
                         Schedule Your Consultation
                     </div>
                 </div>

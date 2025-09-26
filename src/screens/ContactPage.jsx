@@ -37,7 +37,7 @@ const ContactPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-[#4D273F] to-black flex items-center justify-center pt-28 pb-10">
+        <div className="min-h-screen bg-gradient-to-br from-black via-[#4D273F] to-black flex items-center justify-center pt-28 pb-10 px-4">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#4D273F] rounded-full blur-3xl animate-pulse"></div>
@@ -47,17 +47,17 @@ const ContactPage = () => {
 
             <div className="relative w-full max-w-6xl">
                 {/* Glassmorphism container */}
-                <div className="backdrop-blur-xl bg-transparent border border-[#4D273F] rounded-3xl p-8 md:p-12 shadow-2xl">
+                <div className="backdrop-blur-xl bg-transparent border border-[#4D273F] rounded-3xl p-4 md:p-12 shadow-2xl">
                     {/* Header */}
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4D273F] to-[#E6B59E] text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
                             <MessageCircle size={16} />
                             Contact Us
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
                             Let's Connect
                         </h1>
-                        <p className="text-slate-300 text-lg leading-relaxed">
+                        <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
                             Ready to start something amazing together? Drop us a line or reach out directly at{' '}
                             <a href="mailto:hello@prebuiltui.com" className="text-[#E6B59E] hover:text-[#ce8a6b] transition-colors underline decoration-[#E6B59E] hover:decoration-[#ce8a6b]">
                                 hello@admin.com
@@ -74,7 +74,7 @@ const ContactPage = () => {
                             </label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                    <User className="h-5 w-5 text-[#E6B59E] group-focus-within:text-[#E6B59E] transition-colors" />
+                                    <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#E6B59E] group-focus-within:text-[#E6B59E] transition-colors" />
                                 </div>
                                 <input
                                     type="text"
@@ -82,7 +82,7 @@ const ContactPage = () => {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleInputChange}
-                                    className="w-full pl-12 pr-4 py-4 bg-white/5 border border-[#4D273F] rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#E6B59E] focus:border-transparent transition-all duration-300 hover:bg-white/10"
+                                    className="w-full pl-12 pr-4 py-4 text-sm sm:text-base bg-white/5 border border-[#4D273F] rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#E6B59E] focus:border-transparent transition-all duration-300 hover:bg-white/10"
                                     placeholder="Enter your full name"
                                     required
                                 />
@@ -96,7 +96,7 @@ const ContactPage = () => {
                             </label>
                             <div className="relative">
                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                    <Mail className="h-5 w-5 text-[#E6B59E] group-focus-within:text-[#E6B59E] transition-colors" />
+                                    <Mail className="h-4 sm:h-5 w-4 sm:w-5 text-[#E6B59E] group-focus-within:text-[#E6B59E] transition-colors" />
                                 </div>
                                 <input
                                     type="email"
@@ -104,7 +104,7 @@ const ContactPage = () => {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    className="w-full pl-12 pr-4 py-4 bg-white/5 border border-[#4D273F] rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#E6B59E] focus:border-transparent transition-all duration-300 hover:bg-white/10"
+                                    className="w-full pl-12 pr-4 py-4 text-sm sm:text-base bg-white/5 border border-[#4D273F] rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#E6B59E] focus:border-transparent transition-all duration-300 hover:bg-white/10"
                                     placeholder="Enter your email address"
                                     required
                                 />
@@ -122,7 +122,7 @@ const ContactPage = () => {
                                 value={formData.message}
                                 onChange={handleInputChange}
                                 rows={5}
-                                className="w-full p-4 bg-white/5 border border-[#4D273F] rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#E6B59E] focus:border-transparent transition-all duration-300 hover:bg-white/10 resize-none"
+                                className="w-full p-4 text-sm sm:text-base bg-white/5 border border-[#4D273F] rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#E6B59E] focus:border-transparent transition-all duration-300 hover:bg-white/10 resize-none"
                                 placeholder="Tell us about your project or ask any questions"
                                 required
                             />
@@ -133,7 +133,7 @@ const ContactPage = () => {
                             type="button"
                             onClick={handleSubmit}
                             disabled={isLoading || isSubmitted}
-                            className="w-full bg-gradient-to-r from-[#4D273F] to-[#E6B59E] hover:from-[#E6B59E] hover:to-[#4D273F] text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-3"
+                            className="w-full bg-gradient-to-r from-[#4D273F] to-[#E6B59E] hover:from-[#E6B59E] hover:to-[#4D273F] text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-3 text-sm sm:text-base"
                         >
                             {isLoading ? (
                                 <>
@@ -142,7 +142,7 @@ const ContactPage = () => {
                                 </>
                             ) : isSubmitted ? (
                                 <>
-                                    <CheckCircle className="w-5 h-5" />
+                                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />
                                     Message Sent!
                                 </>
                             ) : (
@@ -157,7 +157,7 @@ const ContactPage = () => {
                     {/* Success Message */}
                     {isSubmitted && (
                         <div className="mt-6 p-4 bg-green-500/20 border border-green-400/30 rounded-2xl text-center">
-                            <p className="text-green-300 font-medium">
+                            <p className="text-green-300 font-medium text-sm sm:text-base">
                                 Thank you for reaching out! We'll get back to you soon.
                             </p>
                         </div>

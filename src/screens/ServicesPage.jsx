@@ -11,18 +11,16 @@ const ServicesPage = () => {
                         {/* <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-r from-[#4D273F] to-[#E6B59E] mb-8 mx-auto shadow-2xl">
                             <Stethoscope className="w-12 h-12 text-white" />
                         </div> */}
-                        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
                             Services
                         </h1>
-                        <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                        <p className="text-base sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
                             Pioneering Mental Health & Addiction Psychiatry with Innovative Treatment Solutions
                         </p>
-
                     </div>
                 </div>
             </div>
             <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
                 {/* Left Column: Image */}
                 <div className="flex justify-center lg:justify-start">
                     <img
@@ -34,8 +32,8 @@ const ServicesPage = () => {
                 </div>
 
                 {/* Right Column: Content */}
-                <div className="flex flex-col gap-6 text-left">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl  font-medium text-white leading-snug sm:leading-snug md:leading-tight lg:leading-tight">
+                <div className="flex flex-col gap-6 text-left px-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white leading-snug sm:leading-snug md:leading-tight lg:leading-tight">
                         Reliable in-home elder care that prioritizes comfort, safety and emotional well-being for your loved ones.
                     </h2>
 

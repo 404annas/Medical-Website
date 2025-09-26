@@ -79,13 +79,13 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative w-full h-screen  overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
       {/* Background image with animation */}
       <motion.img
         loading="lazy"
         src={heroImg}
         alt="Hero"
-        className="absolute top-0 left-0 w-full h-full object-cover  object-top-right lg:object-top"
+        className="absolute top-0 left-0 w-full h-full object-cover object-top-right lg:object-top"
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
@@ -97,7 +97,7 @@ const Hero = () => {
 
       {/* Overlay with animation */}
       <motion.div
-        className="absolute w-full h-full  bg-black/50 z-10"
+        className="absolute w-full h-full bg-black/50 z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.8 }}
@@ -105,7 +105,7 @@ const Hero = () => {
 
       {/* Content */}
       <motion.div
-        className="absolute inset-0 flex lg:pt-20 flex-col justify-center items-start px-4 sm:px-6 md:px-12 z-20"
+        className="absolute inset-0 flex pt-24 lg:pt-20 flex-col justify-center items-start px-4 sm:px-6 md:px-12 z-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

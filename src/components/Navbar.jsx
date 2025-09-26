@@ -42,15 +42,13 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 text-white px-4 py-4 transform transition-all duration-1000 ease-out
-        ${
-          navbarVisible
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0"
+        ${navbarVisible
+          ? "translate-x-0 opacity-100"
+          : "-translate-x-full opacity-0"
         }
-        ${
-          isScrolled
-            ? "bg-[#000000] backdrop-blur-md shadow-lg"
-            : "bg-transparent"
+        ${isScrolled
+          ? "bg-[#000000] backdrop-blur-md shadow-lg"
+          : "bg-transparent"
         }`}
     >
       <div className="flex items-center justify-between">
