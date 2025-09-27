@@ -1,138 +1,117 @@
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Card component to handle its own animation based on the shared scroll progress
-const Card = ({ card, index, z }) => {
-  // Use useTransform to create motion values for opacity and blur
-  // This smoothly transitions opacity from 0 to 1 based on z value
-  const opacity = useTransform(z, [index * 50 - 15, index * 50 - 8], [0, 1]);
-
-  // This smoothly transitions blur from 0px to 10px based on z value
-  const blur = useTransform(
-    z,
-    [index * 55 + 15, index * 55 + 20],
-    ["blur(0px)", "blur(10px)"]
-  );
-
-  return (
-    <motion.div
-      style={{
-        transform: `translate3d(0px,0px,${-index * 50}rem)`,
-        transformStyle: "preserve-3d",
-        // REMOVED: transition: "all ease 0.3s", // This was causing the conflict and jerking
-        filter: blur, // Apply the motion value directly
-      }}
-      className={`absolute w-full top-0 bottom-0 flex items-center ${
-        index % 2 === 0
-          ? "right-[55%] md:right-[60%]"
-          : "left-[55%] md:left-[55%] "
-      } `}
-    >
-      <motion.div
-        style={{
-          opacity: opacity, // Apply the motion value directly
-        }}
-        className={`text-white z-10 w-full absolute transition-all duration-200 ease-in ${
-          index % 2 === 0 ? "left-[60%]" : "right-[60%] "
-        }`}
-      >
-        <h1
-          style={{
-            textShadow: "20px 20px 20px rgba(0, 0, 0, 0.5)",
-          }}
-          className="text-2xl md:text-6xl text-center text-black w-full"
-        >
-          {card.name}
-        </h1>
-      </motion.div>
-    </motion.div>
-  );
-};
+// Register the ScrollTrigger plugin with GSAP
+gsap.registerPlugin(ScrollTrigger);
 
 export default function DepthAnimation() {
   const containerRef = useRef(null);
-  const [windowHeight, setWindowHeight] = useState(
-    typeof window !== "undefined" ? window.innerHeight : 0
-  );
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" ? window.innerWidth <= 1030 : false
-  );
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  const textContainerRef = useRef(null);
 
-  const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    mass: 0.4,
-    restDelta: 0.001,
-  });
-
-  const z = useTransform(smoothScroll, [0, 1], [0, 300]);
-
-  // Create a transform to apply the z value with the 'rem' unit
-  const zTransform = useTransform(
-    z,
-    (latest) => `translate3d(0px, 0px, ${latest}rem)`
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 1030);
-      setWindowHeight(window.innerHeight);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const cardData = [
-    { id: "mentalHealth", name: "Expertise" },
-    { id: "addictionTreatment", name: "Alcohol Treatment" },
-    { id: "psychiatry", name: "Innovative" },
+  const textData = [
+    { id: "expertise", name: "Expertise" },
+    { id: "alcoholTreatment", name: "Treatment" },
+    { id: "innovative", name: "Innovative" },
     { id: "rapidDetox", name: "Rapid Detox" },
-    { id: "photobiomodulation", name: "Photobio" },
-    { id: "neuralRegen", name: "Neural Service" },
-    { id: "nanoInfusions", name: "Nano-Particle" },
-    // { id: "telemedicine", name: "Telemedicine" },
-    // { id: "training", name: "First Aid & Mental Health Training" },
-    // { id: "recoveryManagement", name: "Addiction Recovery Management" },
-    // {
-    //   id: "holisticTreatment",
-    //   name: "Holistic and Evidence-Based Treatment Approaches",
-    // },
+    { id: "photobiomodulation", name: "Photobiomodulation" },
+    { id: "getCareNow", name: "Get Care Now" }, // ✅ new item
   ];
 
-  return (
-    <div
-      ref={containerRef}
-      className="h-[1500vh] relative flex justify-center scroll-smooth"
-    >
-      <div
-        className="h-[100vh] w-screen flex justify-center items-center overflow-hidden bg-cover bg-center bg-no-repeat sticky top-0 bg-white"
-        style={{ perspective: "1000px" }}
-      >
-        {/* Converted to motion.div to accept transform motion value */}
-        <motion.div
-          className="relative w-[12rem] md:w-[16rem] lg:w-[50rem] md:h-[16rem] lg:h-[20rem] flex flex-col lg:flex-row max-lg:gap-6 py-10 lg:pt-36 max-lg:items-center justify-center"
-          style={{
-            transform: zTransform, // Apply the motion value for transform
-            transformStyle: "preserve-3d",
-          }}
-        >
-          <div
-            className="text-5xl font-bold anton text-black text-center uppercase"
-            style={{
-              transform: "translate3d(0px,0px,-300rem)",
-              transformStyle: "preserve-3d",
-            }}
-          ></div>
+  useEffect(() => {
+    // Set up the GSAP timeline linked to the scroll trigger
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.5, // Smoothly scrubs the animation on scroll
+      },
+    });
 
-          {/* Map over cardData and render the new Card component */}
-          {cardData.map((card, index) => (
-            <Card key={index} card={card} index={index} z={z} />
+    // Animate the entire text container along the Z-axis for the main depth effect
+    timeline.to(
+      textContainerRef.current,
+      {
+        z: "170rem",
+        ease: "none",
+      },
+      0 // Start this animation at the very beginning of the timeline
+    );
+
+    // Animate each text element to fade in and out sequentially
+    textData.forEach((_, index) => {
+      const textSelector = `.text-${index}`;
+      const animationStartTime = index * 0.1; // Stagger the start time for each text
+      const animationDuration = 0.1; // Total duration for one text's fade in/out cycle
+
+      // --- Fade In and Sharpen Animation ---
+      // The text starts transparent and blurred, then becomes opaque and sharp.
+      timeline.fromTo(
+        textSelector,
+        { opacity: 0, filter: "blur(3px)" },
+        {
+          opacity: 1,
+          filter: "blur(0px)",
+          duration: animationDuration / 2, // Half the duration for fade-in
+          ease: "power1.in",
+        },
+        animationStartTime // Position this animation on the master timeline
+      );
+
+      // --- Fade Out and Blur Animation ---
+      // The text fades back to transparent and becomes blurred again.
+      if (index !== textData.length - 1) {
+        timeline.to(
+          textSelector,
+          {
+            opacity: 0,
+            filter: "blur(1px)",
+            duration: animationDuration / 2,
+            ease: "power1.out",
+          },
+          animationStartTime + animationDuration / 2
+        );
+      }
+    });
+
+    // Cleanup function to kill all ScrollTriggers when the component unmounts
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  return (
+    // Main container that defines the scrollable height
+    <div ref={containerRef} className="h-[750vh] relative">
+      {/* Sticky container that holds the 3D scene */}
+      <div
+        className="h-screen w-screen sticky top-0 flex items-center justify-center overflow-hidden bg-white"
+        style={{ perspective: "1200px" }} // Enables the 3D perspective
+      >
+        {/* The container for all the text elements, which will be moved in 3D space */}
+        <div
+          ref={textContainerRef}
+          className="relative h-auto w-full"
+          style={{ transformStyle: "preserve-3d" }}
+        >
+          {textData.map((item, index) => (
+            <div
+              key={item.id}
+              // Set initial opacity to 0 so it's invisible before GSAP takes over
+              className={`text-${index} absolute w-full h-full top-0 flex items-center justify-center opacity-0`}
+              style={{
+                // Distributes text along the Z-axis, creating the stacked depth effect
+                transform: `translateZ(${-index * 40}rem)`,
+                transformStyle: "preserve-3d",
+              }}
+            >
+              <h1 className="text-5xl md:text-9xl  text-center text-black font-bold">
+                {item.name}
+              </h1>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
