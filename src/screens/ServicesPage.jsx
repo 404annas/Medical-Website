@@ -15,6 +15,7 @@ import {
   Globe,
 } from "lucide-react";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
   const [activeService, setActiveService] = useState(0);
@@ -141,9 +142,9 @@ const ServicesPage = () => {
 
           <div className="mt-4 sm:mt-6 relative group flex items-center gap-4 font-medium text-sm sm:text-base px-4 py-2 rounded-full border border-[#E6B59E] cursor-pointer overflow-hidden transition-colors duration-500 bg-[#4D273F] w-fit">
             <span className="absolute inset-0 bg-[#E6B59E] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
-            <p className="relative z-10 text-white group-hover:text-black transition-colors duration-500">
-              More Services
-            </p>
+            <Link to={"/contact"} onClick={() => scrollTo(0, 0)} className="relative z-10 text-white group-hover:text-black transition-colors duration-500">
+              Start Your Journey
+            </Link>
             <p className="relative z-10 flex items-center justify-center rounded-full p-3 bg-[#E6B59E] group-hover:bg-[#4D273F] text-black group-hover:text-[#E6B59E] transition-colors duration-500">
               <ArrowUpRight size={16} />
             </p>
@@ -373,7 +374,7 @@ const ServicesPage = () => {
         <div className="text-center">
           <div className="relative group inline-block">
             <div className="absolute inset-0 bg-gradient-to-r from-[#4D273F] to-[#E6B59E] rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-            <button className="relative bg-gradient-to-r from-[#4D273F] to-[#E6B59E] text-white px-12 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+            <button className="relative bg-gradient-to-r from-[#4D273F] to-[#E6B59E] text-white px-12 py-4 rounded-full font-semibold text-sm sm:text-base cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300">
               Schedule Consultation
             </button>
           </div>

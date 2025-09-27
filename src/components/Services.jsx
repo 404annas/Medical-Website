@@ -2,6 +2,7 @@ import { PhoneCall, ArrowUpRightIcon } from 'lucide-react';
 import React from 'react';
 import ServicesAno from './ServicesAno';
 import ServicesAnoAno from './ServicesAnoAno';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   return (
@@ -27,7 +28,7 @@ const Services = () => {
           {/* Custom Button */}
           <div className="mt-4 sm:mt-6 relative group flex items-center gap-4 font-medium text-sm sm:text-base md:text-base px-4 py-2 rounded-full border border-[#E6B59E] hover:border-[#E6B59E] cursor-pointer overflow-hidden transition-colors duration-500 bg-[#4D273F] w-fit">
             <span className="absolute inset-0 bg-[#E6B59E] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
-            <p className="relative z-10 text-white group-hover:text-black transition-colors duration-500">More Services</p>
+            <Link to={"/about"} onClick={() => scrollTo(0, 0)} className="relative z-10 text-white group-hover:text-black transition-colors duration-500">Proven Results</Link>
             <p className="relative z-10 flex items-center justify-center rounded-full p-3 bg-[#E6B59E] group-hover:bg-[#4D273F] text-black group-hover:text-[#E6B59E] transition-colors duration-500">
               <ArrowUpRightIcon size={16} />
             </p>

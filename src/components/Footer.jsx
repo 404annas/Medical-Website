@@ -18,7 +18,7 @@ const Footer = () => {
             </p>
             <div className="mt-6 relative group flex items-center gap-3 sm:gap-4 font-medium text-sm sm:text-base px-4 py-2 rounded-full border border-[#E6B59E] hover:border-[#E6B59E] cursor-pointer overflow-hidden transition-colors duration-500 bg-[#4D273F] w-fit">
               <span className="absolute inset-0 bg-[#E6B59E] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
-              <p className="relative z-10 text-white group-hover:text-black transition-colors duration-500">More Services</p>
+              <Link to={"/contact"} onClick={() => scrollTo(0, 0)} className="relative z-10 text-white group-hover:text-black transition-colors duration-500">Get In Touch</Link>
               <p className="relative z-10 flex items-center justify-center rounded-full p-2 sm:p-3 bg-[#E6B59E] group-hover:bg-[#4D273F] text-black group-hover:text-[#E6B59E] transition-colors duration-500">
                 <ArrowUpRightIcon size={16} />
               </p>

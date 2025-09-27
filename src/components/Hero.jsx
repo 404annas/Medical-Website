@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRightIcon } from "lucide-react";
 import heroImg from "../assets/hero.png";
+import StickyPhone from "./StickyPhone";
+import WhatsAppButton from "./WhatsAppButton";
+import { Link } from "react-router-dom";
 
 const heading = ["We support seniors with dignity and personal care"];
 
@@ -80,6 +83,8 @@ const Hero = () => {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
+      <StickyPhone />
+      <WhatsAppButton />
       {/* Background image with animation */}
       <motion.img
         loading="lazy"
@@ -126,9 +131,9 @@ const Hero = () => {
           whileTap={{ scale: 0.95 }}
         >
           <span className="absolute inset-0 bg-[#4D273F] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
-          <p className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
+          <Link to={"/services"} onClick={() => scrollTo(0, 0)} className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
             Get care now
-          </p>
+          </Link>
           <p className="relative z-10 flex items-center justify-center rounded-full p-3 bg-[#4D273F] group-hover:bg-[#E6B59E] text-white group-hover:text-black transition-colors duration-500">
             <ArrowUpRightIcon size={16} />
           </p>

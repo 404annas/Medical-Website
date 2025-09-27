@@ -43,15 +43,13 @@ const Navbar = () => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out
-          ${
-            isScrolled
-              ? "bg-black/60 shadow-lg backdrop-blur-xl "
-              : "bg-transparent"
+          ${isScrolled
+            ? "bg-black/60 shadow-lg backdrop-blur-xl "
+            : "bg-transparent"
           }
-          ${
-            isMounted
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-full"
+          ${isMounted
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full"
           }
         `}
       >
@@ -82,8 +80,8 @@ const Navbar = () => {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex">
-              <button className="group relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden rounded-full bg-purple-600 text-white font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-900/50">
-                <Phone className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
+              <button className="group relative inline-flex items-center justify-center cursor-pointer px-6 py-2.5 overflow-hidden border border-[#E6B59E] rounded-full bg-[#4D273F] text-white font-medium transition-all duration-300 hover:scale-105">
+                <Phone className="w-4 h-4 mr-2 transition-all duration-300" />
                 <span>Get Care</span>
               </button>
             </div>
@@ -124,11 +122,10 @@ const Navbar = () => {
             {navLinks.map((link, index) => (
               <li
                 key={link.href}
-                className={`transition-all duration-500 ease-out ${
-                  isMenuOpen
+                className={`transition-all duration-500 ease-out ${isMenuOpen
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
-                }`}
+                  }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <Link
@@ -142,11 +139,10 @@ const Navbar = () => {
             ))}
           </ul>
           <div
-            className={`absolute bottom-16 transition-all duration-500 ease-out ${
-              isMenuOpen
+            className={`absolute bottom-16 transition-all duration-500 ease-out ${isMenuOpen
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
-            }`}
+              }`}
             style={{ transitionDelay: `${navLinks.length * 100}ms` }}
           >
             <button className="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden rounded-full bg-purple-600 text-white font-semibold text-lg">

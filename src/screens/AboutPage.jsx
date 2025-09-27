@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, MapPin, GraduationCap, Stethoscope, Brain, Heart } from 'lucide-react';
 import ownerImg from "../assets/owner.png"
+import { Link } from 'react-router-dom';
 
 const About = () => {
     const specialties = [
@@ -199,16 +200,16 @@ const About = () => {
             {/* Call to Action */}
             <section className="py-20 bg-gradient-to-r from-black via-gray-900 to-black">
                 <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 text-left">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 text-left sm:text-center">
                         Ready to Begin Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a77996] to-[#E6B59E]">Recovery Journey?</span>
                     </h2>
                     <p className="text-base sm:text-xl text-gray-300 mb-8 leading-relaxed">
                         Experience innovative, evidence-based treatment approaches designed to address your unique needs and support lasting recovery.
                     </p>
-                    <div className="inline-flex items-center bg-gradient-to-r from-[#4D273F] to-[#E6B59E] rounded-full px-8 py-4 text-white font-bold text-sm sm:text-base md:text-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+                    <Link to={"/contact"} onClick={() => scrollTo(0,0)} className="inline-flex items-center bg-gradient-to-r from-[#4D273F] to-[#E6B59E] rounded-full px-8 py-4 text-white font-bold text-sm sm:text-base hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
                         <Heart className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
                         Schedule Your Consultation
-                    </div>
+                    </Link>
                 </div>
             </section>
         </div>
