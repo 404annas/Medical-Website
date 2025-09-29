@@ -26,7 +26,7 @@ export default function DepthAnimationSerivces() {
         trigger: containerRef.current,
         start: "top top",
         end: "bottom bottom",
-        scrub: 1.5, // Smoothly scrubs the animation on scroll
+        scrub: 3, // Smoothly scrubs the animation on scroll
       },
     });
 
@@ -102,12 +102,11 @@ export default function DepthAnimationSerivces() {
               // Set initial opacity to 0 so it's invisible before GSAP takes over
               className={`text-${index} absolute w-full h-full top-0 flex items-center justify-center opacity-0`}
               style={{
-                // Distributes text along the Z-axis, creating the stacked depth effect
                 transform: `translateZ(${-index * 40}rem)`,
                 transformStyle: "preserve-3d",
               }}
             >
-              <h1 className="text-5xl md:text-9xl  text-center text-black font-bold">
+              <h1 className="text-5xl md:text-8xl max-w-xl  text-center text-black font-bold">
                 {item.name}
               </h1>
             </div>

@@ -1,4 +1,3 @@
-
 # Medical Website
 
 ## Project Overview
@@ -7,18 +6,18 @@ This project is a modern and responsive landing page for a medical service provi
 
 ## Features
 
-*   **Responsive Design:** Fully responsive layout that works on all devices, from mobile phones to desktops.
-*   **Animated Interface:** Engaging animations to enhance user experience, powered by Framer Motion and GSAP.
-*   **Component-Based Architecture:** Built with React, promoting reusability and maintainability.
-*   **Clear Navigation:** Easy-to-use navigation to browse through different sections of the website.
-*   **Contact Form:** A simple and effective form for users to send their inquiries.
+- **Responsive Design:** Fully responsive layout that works on all devices, from mobile phones to desktops.
+- **Animated Interface:** Engaging animations to enhance user experience, powered by Framer Motion and GSAP.
+- **Component-Based Architecture:** Built with React, promoting reusability and maintainability.
+- **Clear Navigation:** Easy-to-use navigation to browse through different sections of the website.
+- **Contact Form:** A simple and effective form for users to send their inquiries.
 
 ## Tech Stack
 
-*   **Frontend:** React, Vite, Tailwind CSS
-*   **Routing:** React Router
-*   **Animations:** Framer Motion, GSAP
-*   **Icons:** Lucide React, React Icons
+- **Frontend:** React, Vite, Tailwind CSS
+- **Routing:** React Router
+- **Animations:** Framer Motion, GSAP
+- **Icons:** Lucide React, React Icons
 
 ## Folder Structure
 
@@ -114,17 +113,17 @@ This will create a `dist` folder with the optimized and minified files for deplo
 
 The `src/components` directory contains all the reusable components of the application. Each component is designed to be modular and self-contained.
 
-*   **`Navbar.jsx`**: The main navigation bar of the website.
-*   **`Hero.jsx`**: The hero section of the landing page.
-*   **`Services.jsx`**: The section that displays the services offered.
-*   **`Footer.jsx`**: The footer of the website.
-*   **`CareForm.jsx`**: The contact form component.
-*   **`Faqs.jsx`**: The frequently asked questions section.
+- **`Navbar.jsx`**: The main navigation bar of the website.
+- **`Hero.jsx`**: The hero section of the landing page.
+- **`Services.jsx`**: The section that displays the services offered.
+- **`Footer.jsx`**: The footer of the website.
+- **`CareForm.jsx`**: The contact form component.
+- **`Faqs.jsx`**: The frequently asked questions section.
 
 ## Best Practices & Conventions
 
-*   **Component Naming:** Components are named using PascalCase (e.g., `MyComponent`).
-*   **File Naming:** Files are named using PascalCase for components and camelCase for other JavaScript files.
-*   **CSS:** Tailwind CSS is used for styling. Utility-first classes are preferred over custom CSS.
-*   **Linting:** The project uses ESLint to enforce code quality and consistency. Run `npm run lint` to check for linting errors.
-*   **Commits:** Commit messages should be clear and concise, following the conventional commit format.
+- **Component Naming:** Components are named using PascalCase (e.g., `MyComponent`).
+- **File Naming:** Files are named using PascalCase for components and camelCase for other JavaScript files.
+- **CSS:** Tailwind CSS is used for styling. Utility-first classes are preferred over custom CSS.
+- **Linting:** The project uses ESLint to enforce code quality and consistency. Run `npm run lint` to check for linting errors.
+- **Commits:** Commit messages should be clear and concise, following the conventional commit format.
