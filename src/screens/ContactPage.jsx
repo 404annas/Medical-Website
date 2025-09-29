@@ -57,16 +57,6 @@ const ContactPage = () => {
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
               Let's Connect
             </h1>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-              Ready to start something amazing together? Drop us a line or reach
-              out directly at{" "}
-              <a
-                href="mailto:hello@prebuiltui.com"
-                className="text-[#E6B59E] hover:text-[#ce8a6b] transition-colors underline decoration-[#E6B59E] hover:decoration-[#ce8a6b]"
-              >
-                hello@admin.com
-              </a>
-            </p>
           </div>
 
           {/* Form */}

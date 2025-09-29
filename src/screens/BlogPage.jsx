@@ -1,4 +1,5 @@
 import React from 'react'
+import { blogData } from '../data/blogData';
 
 const BlogPage = () => {
     return (
@@ -8,39 +9,18 @@ const BlogPage = () => {
                 each piece crafted with intention, emotion, and style.</p>
 
             <div className="flex flex-row items-center gap-6 h-[350px] w-full max-w-5xl mt-14 mx-auto">
-                <div className="relative group flex-grow transition-all w-80 h-96 md:w-56 md:h-[400px] duration-500 hover:w-full">
-                    <img className="h-full w-full object-cover object-center"
-                        src="https://images.unsplash.com/photo-1543269865-0a740d43b90c?q=80&w=800&h=400&auto=format&fit=crop"
-                        alt="image" />
-                    <div
-                        className="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-3xl">Prompt engineers</h1>
-                        <p className="text-sm">Bridging the gap between human intent and machine understanding through expert prompt design.</p>
-
+                {blogData.slice(0, 3).map((blog) => (
+                    <div key={blog.id} className="relative group flex-grow transition-all w-80 h-96 md:w-56 md:h-[400px] duration-500 hover:w-full">
+                        <img className="h-full w-full object-cover object-center"
+                            src={blog.image}
+                            alt={blog.title} />
+                        <div
+                            className="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <h1 className="text-3xl">{blog.title}</h1>
+                            <p className="text-sm">{blog.content}</p>
+                        </div>
                     </div>
-                </div>
-                <div className="relative group flex-grow transition-all w-80 h-96 lg:w-56 lg:h-[400px] duration-500 hover:w-full">
-                    <img className="h-full w-full object-cover object-right"
-                        src="https://images.unsplash.com/photo-1714976326351-0ecf0244f0fc?q=80&w=800&h=400&auto=format&fit=crop"
-                        alt="image" />
-                    <div
-                        className="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-3xl">Data scientists</h1>
-                        <p className="text-sm">Bridging the gap between human intent and machine understanding through expert prompt design.</p>
-
-                    </div>
-                </div>
-                <div className="relative group flex-grow transition-all w-80 h-96 sm:w-96 h-96 lg:w-56 lg:h-[400px] duration-500 hover:w-full">
-                    <img className="h-full w-full object-cover object-center"
-                        src="https://images.unsplash.com/photo-1736220690062-79e12ca75262?q=80&w=800&h=400&auto=format&fit=crop"
-                        alt="image" />
-                    <div
-                        className="absolute inset-0 flex flex-col justify-end p-10 text-white bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <h1 className="text-3xl">Software engineers</h1>
-                        <p className="text-sm">Bridging the gap between human intent and machine understanding through expert prompt design.</p>
-
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
