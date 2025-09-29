@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import Faqs from "../components/Faqs";
 import Animation from "../components/Animation";
-import DepthAnimation from "../components/DepthAnimation";
+import DepthAnimationSerivces from "../components/DepthAnimationServices";
 
 const HomePage = () => {
   return (
@@ -11,8 +11,7 @@ const HomePage = () => {
       <Hero />
 
       <Services />
-      {/* <Animation /> */}
-      <DepthAnimation />
+      <DepthAnimationSerivces />
       <Faqs />
     </div>
   );

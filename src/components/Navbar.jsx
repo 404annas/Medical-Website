@@ -1,10 +1,13 @@
 import { Phone, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import logo from "../assets/abstract-logo.svg";
 import { Link } from "react-router-dom";
+import CareForm from "./CareForm";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isFormOpen, setFormOpen] = useState(false);
 
   // Effect for component mount animation
   useEffect(() => {
@@ -43,13 +46,15 @@ const Navbar = () => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out
-          ${isScrolled
-            ? "bg-black/60 shadow-lg backdrop-blur-xl "
-            : "bg-transparent"
+          ${
+            isScrolled
+              ? "bg-black/60 shadow-lg backdrop-blur-xl "
+              : "bg-transparent"
           }
-          ${isMounted
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full"
+          ${
+            isMounted
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-full"
           }
         `}
       >
@@ -61,7 +66,7 @@ const Navbar = () => {
               onClick={() => window.scrollTo(0, 0)}
               className="text-3xl text-white font-bold tracking-tighter"
             >
-              Eldiora
+              <img src={logo} className="w-26 object-cover" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -80,7 +85,10 @@ const Navbar = () => {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex">
-              <button className="group relative inline-flex items-center justify-center cursor-pointer px-6 py-2.5 overflow-hidden border border-[#E6B59E] rounded-full bg-[#4D273F] text-white font-medium transition-all duration-300 hover:scale-105">
+              <button
+                onClick={() => setFormOpen(true)}
+                className="group relative inline-flex items-center justify-center cursor-pointer px-6 py-2.5 overflow-hidden border border-[#E6B59E] rounded-full bg-[#4D273F] text-white font-medium transition-all duration-300 hover:scale-105"
+              >
                 <Phone className="w-4 h-4 mr-2 transition-all duration-300" />
                 <span>Get Care</span>
               </button>
@@ -106,13 +114,8 @@ const Navbar = () => {
         `}
       >
         <div className="flex justify-between items-center p-6 h-20 border-b border-gray-800">
-          <Link
-            to="/"
-            onClick={handleLinkClick}
-            className="text-3xl text-white font-bold tracking-tighter"
-          >
-            Eldiora
-          </Link>
+          <img src={logo} className="w-26 object-cover" />
+
           <button onClick={() => setIsMenuOpen(false)} className="p-2 -mr-2">
             <X className="text-white" size={30} />
           </button>
@@ -122,10 +125,11 @@ const Navbar = () => {
             {navLinks.map((link, index) => (
               <li
                 key={link.href}
-                className={`transition-all duration-500 ease-out ${isMenuOpen
+                className={`transition-all duration-500 ease-out ${
+                  isMenuOpen
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
-                  }`}
+                }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <Link
@@ -139,10 +143,11 @@ const Navbar = () => {
             ))}
           </ul>
           <div
-            className={`absolute bottom-16 transition-all duration-500 ease-out ${isMenuOpen
+            className={`absolute bottom-16 transition-all duration-500 ease-out ${
+              isMenuOpen
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
-              }`}
+            }`}
             style={{ transitionDelay: `${navLinks.length * 100}ms` }}
           >
             <button className="group relative inline-flex items-center justify-center px-8 py-4 overflow-hidden rounded-full bg-purple-600 text-white font-semibold text-lg">
@@ -152,6 +157,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <CareForm isOpen={isFormOpen} onClose={() => setFormOpen(false)} />
     </>
   );
 };

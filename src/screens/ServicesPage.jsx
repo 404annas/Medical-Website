@@ -15,6 +15,7 @@ import {
   Globe,
 } from "lucide-react";
 import React, { useState } from "react";
+import mainImg from "../assets/services-main1.webp";
 import { Link } from "react-router-dom";
 
 const ServicesPage = () => {
@@ -126,23 +127,30 @@ const ServicesPage = () => {
       {/* Section 1 - Image + Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-32">
         <div className="flex justify-center lg:justify-start">
-          <img
-            loading="lazy"
-            src="https://cdn.prod.website-files.com/686e5f117daf09c744bbab53/686f4811e6b2605289d088ca_49542412ea16da7ba06eb97cd4f73ca0_About%20Image-p-800.webp"
-            alt="Caregiver assisting an elderly woman in a wheelchair"
-            className="rounded-3xl w-full max-w-[90%] object-cover"
-          />
+          <div className="w-full max-w-[90%] aspect-square">
+            <img
+              loading="lazy"
+              src={mainImg}
+              className="rounded-3xl w-full h-full object-contain object-top-right"
+            />
+          </div>
         </div>
 
         <div className="flex flex-col gap-6 text-left">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white leading-snug sm:leading-snug md:leading-tight lg:leading-tight">
-            Reliable in-home elder care that prioritizes comfort, safety and
-            emotional well-being for your loved ones.
+          <h2 className="text-2xl sm:text-3xl md:text-3xl font-medium text-white leading-snug sm:leading-snug md:leading-tight lg:leading-tight">
+            Comprehensive care from detox and regenerative therapies to
+            fertility, sexual health, and overall wellness all designed to
+            restore balance, boost vitality, and support your long-term health
+            with compassion and expertise
           </h2>
 
           <div className="mt-4 sm:mt-6 relative group flex items-center gap-4 font-medium text-sm sm:text-base px-4 py-2 rounded-full border border-[#E6B59E] cursor-pointer overflow-hidden transition-colors duration-500 bg-[#4D273F] w-fit">
             <span className="absolute inset-0 bg-[#E6B59E] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out z-0"></span>
-            <Link to={"/contact"} onClick={() => scrollTo(0, 0)} className="relative z-10 text-white group-hover:text-black transition-colors duration-500">
+            <Link
+              to={"/contact"}
+              onClick={() => scrollTo(0, 0)}
+              className="relative z-10 text-white group-hover:text-black transition-colors duration-500"
+            >
               Start Your Journey
             </Link>
             <p className="relative z-10 flex items-center justify-center rounded-full p-3 bg-[#E6B59E] group-hover:bg-[#4D273F] text-black group-hover:text-[#E6B59E] transition-colors duration-500">
@@ -161,7 +169,7 @@ const ServicesPage = () => {
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-medium mt-2 text-[#1E1E1E]">
-                Resident care
+                Detox
               </h3>
               <p className="text-gray-500 mt-1 text-sm sm:text-base">
                 Compassionate support, everyday comfort.
@@ -176,7 +184,7 @@ const ServicesPage = () => {
                 </div>
               </div>
               <h3 className="text-lg sm:text-xl font-medium mt-2 text-[#1E1E1E]">
-                Independent living
+                Infertility Consultation
               </h3>
               <p className="text-gray-500 mt-1 text-sm sm:text-base">
                 Safe environment, more freedom.
@@ -216,8 +224,9 @@ const ServicesPage = () => {
             return (
               <div
                 key={service.id}
-                className={`relative group cursor-pointer transition-all duration-700 ${isActive ? "scale-105" : "hover:scale-102"
-                  }`}
+                className={`relative group cursor-pointer transition-all duration-700 ${
+                  isActive ? "scale-105" : "hover:scale-102"
+                }`}
                 onMouseEnter={() => setActiveService(index)}
               >
                 <div
@@ -249,9 +258,7 @@ const ServicesPage = () => {
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <CheckCircle className="w-4 h-4 text-green-400" />
-                        <span className="text-sm text-gray-400">
-                          {feature}
-                        </span>
+                        <span className="text-sm text-gray-400">{feature}</span>
                       </div>
                     ))}
                   </div>

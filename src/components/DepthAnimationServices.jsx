@@ -5,17 +5,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 // Register the ScrollTrigger plugin with GSAP
 gsap.registerPlugin(ScrollTrigger);
 
-export default function DepthAnimation() {
+export default function DepthAnimationSerivces() {
   const containerRef = useRef(null);
   const textContainerRef = useRef(null);
 
   const textData = [
     { id: "expertise", name: "Expertise" },
-    { id: "alcoholTreatment", name: "Treatment" },
-    { id: "innovative", name: "Innovative" },
+    { id: "alcoholTreatment", name: "Infertility Consultation" },
+    { id: "innovative", name: "Physical And Wellness" },
     { id: "rapidDetox", name: "Rapid Detox" },
-    { id: "photobiomodulation", name: "Photobiomodulation" },
-    { id: "getCareNow", name: "Get Care Now" }, // ✅ new item
+    { id: "photobiomodulation", name: "Full Body Detoxification" },
+    { id: "getCareNow", name: "Regenerative" }, // ✅ new item
+    { id: "getCareNow", name: "Get Care Now" },
   ];
 
   useEffect(() => {
