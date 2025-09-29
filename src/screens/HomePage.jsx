@@ -12,7 +12,7 @@ const HomePage = () => {
 
       <Services />
       {/* <Animation /> */}
-      {/* <DepthAnimation /> */}
+      <DepthAnimation />
       <Faqs />
     </div>
   );
