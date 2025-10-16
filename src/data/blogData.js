@@ -1,10 +1,14 @@
+import service1 from "../assets/services1.webp";
+import service2 from "../assets/services2.webp";
+import service3 from "../assets/services3.webp";
+
 export const blogData = [
   {
     id: 1,
     title: "The Benefits of a Detox Cleansing",
     author: "Dr. Jane Doe",
     date: "2025-09-15",
-    image: "/src/assets/services1.webp",
+    image: service1,
     content:
       "A detox cleanse can help reset your body and improve your overall health. Learn about the benefits and how to get started.",
   },
@@ -13,7 +17,7 @@ export const blogData = [
     title: "Embracing Independent Living in Your Golden Years",
     author: "John Smith, RN",
     date: "2025-09-10",
-    image: "/src/assets/services2.webp",
+    image: service2,
     content:
       "Discover how independent living can enhance your quality of life and provide a sense of community and security.",
   },
@@ -22,7 +26,7 @@ export const blogData = [
     title: "Regenerative Therapies: The Future of Medicine",
     author: "Dr. Emily White",
     date: "2025-09-05",
-    image: "/src/assets/services3.webp",
+    image: service3,
     content:
       "Explore the exciting world of regenerative therapies and how they are revolutionizing the treatment of various conditions.",
   },
